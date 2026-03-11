@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Zinnia Branding – Where Brands Blossom</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Zinnia Branding, Black female owned, branding studio, corporate identity" name="keywords">
+    <meta content="Zinnia Branding – 100% Black female-owned creative studio. We build powerful, professional, unforgettable brands." name="description">
+    <link href="img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ===== ZINNIA OFFICIAL COLOR SYSTEM ===== */
+        :root {
+            --zinnia-pink: #C2185B;      /* Blossom Pink – hero 40% */
+            --zinnia-plum: #4A154B;       /* Deep Plum – authority 30% */
+            --zinnia-blush: #F8E1E7;      /* Soft Blush – foundation 20% */
+            --zinnia-gold: #C9A227;       /* Metallic Gold – premium accent 10% max */
+        }
+
+        /* background utilities */
+        .bg-pink { background-color: var(--zinnia-pink) !important; }
+        .bg-plum { background-color: var(--zinnia-plum) !important; }
+        .bg-blush { background-color: var(--zinnia-blush) !important; }
+        .bg-gold { background-color: var(--zinnia-gold) !important; }
+        .bg-white { background-color: #ffffff !important; }
+
+        /* text colors */
+        .text-pink { color: var(--zinnia-pink) !important; }
+        .text-plum { color: var(--zinnia-plum) !important; }
+        .text-gold { color: var(--zinnia-gold) !important; }
+        .text-white { color: #ffffff !important; }
+        .text-dark-plum { color: var(--zinnia-plum) !important; } /* alias */
+
+        /* borders & accents */
+        .border-gold { border-color: var(--zinnia-gold) !important; }
+        .border-pink { border-color: var(--zinnia-pink) !important; }
+
+        /* buttons – primary pink, secondary gold (sparingly) */
+        .btn-zinnia-pink {
+            background: var(--zinnia-pink);
+            color: white;
+            border: none;
+        }
+        .btn-zinnia-pink:hover {
+            background: #a0144b; /* darker pink */
+            color: white;
+        }
+        .btn-zinnia-gold {
+            background: var(--zinnia-gold);
+            color: var(--zinnia-plum);
+            border: none;
+        }
+        .btn-zinnia-gold:hover {
+            background: #b48a1f;
+            color: var(--zinnia-plum);
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--zinnia-plum);
+        }
+
+        /* Navbar & top bar – plum dominant, pink details */
+        .navbar-branding {
+            background: var(--zinnia-plum) !important;
+        }
+        .topbar-zinnia {
+            background: var(--zinnia-pink) !important;  /* pink as hero on top bar */
+        }
+        .topbar-zinnia i {
+            color: var(--zinnia-gold) !important;
+        }
+
+        /* Fullscreen Carousel Hero – overlay and captions use brand */
+        .hero-carousel {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+        }
+        .hero-carousel .carousel,
+        .hero-carousel .carousel-inner,
+        .hero-carousel .carousel-item {
+            height: 100%;
+        }
+        .hero-carousel .carousel-item {
+            position: relative;
+            background: no-repeat center center;
+            background-size: cover;
+        }
+        .hero-carousel .carousel-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 21, 75, 0.4); /* plum with transparency */
+            z-index: 1;
+        }
+        .hero-carousel .carousel-caption {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: auto;
+            z-index: 2;
+            background: transparent;
+            padding: 0;
+            max-width: 700px;
+        }
+        .hero-carousel .carousel-caption.left-caption {
+            left: 10%;
+            right: auto;
+            text-align: left;
+        }
+        .hero-carousel .carousel-caption.right-caption {
+            right: 10%;
+            left: auto;
+            text-align: right;
+        }
+        .hero-carousel .carousel-caption h5 {
+            color: var(--zinnia-gold);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero-carousel .carousel-caption h1 {
+            color: white;
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        .hero-carousel .carousel-caption h1 span {
+            color: var(--zinnia-gold);
+        }
+        .hero-carousel .carousel-caption p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* About Section */
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(194, 24, 91, 0.25); /* pink shadow */
+        }
+        .about-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(194,24,91,0.9), transparent); /* pink gradient */
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(70%);
+            transition: transform 0.4s;
+        }
+        .about-image-wrapper:hover .about-image-overlay {
+            transform: translateY(0);
+        }
+        .about-image-overlay h4 {
+            color: var(--zinnia-gold);
+        }
+
+        .service-card-brand {
+            background: white;
+            border-radius: 24px 24px 24px 0;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(74,21,75,0.08); /* plum tint */
+            height: 100%;
+            border-left: 4px solid var(--zinnia-gold);
+            border-bottom: 4px solid var(--zinnia-gold);
+            transition: 0.3s;
+        }
+        .service-card-brand:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(194,24,91,0.15); /* pink glow */
+        }
+        .service-list-brand {
+            list-style: none;
+            padding-left: 0;
+        }
+        .service-list-brand li::before {
+            content: "✦";
+            color: var(--zinnia-gold);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5rem;
+            margin-left: -1.5rem;
+        }
+        .feature-badge {
+            background: white;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 5px 15px rgba(74,21,75,0.08);
+            border-left: 4px solid var(--zinnia-gold);
+        }
+        .footer-branding {
+            background: var(--zinnia-plum) !important;
+            color: #f0d9e0;
+            border-top: 5px solid var(--zinnia-gold);
+        }
+        .info-card {
+            background: var(--zinnia-pink);  /* pink dominance */
+            border-radius: 30px;
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .info-card::before {
+            content: "✦";
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            bottom: -50px;
+            right: -50px;
+            color: var(--zinnia-gold);
+        }
+        .contact-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px rgba(74,21,75,0.15);
+            border-bottom: 4px solid var(--zinnia-gold);
+        }
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 2rem;
+            border: 3px solid var(--zinnia-gold);
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 250px;
+            display: block;
+        }
+        .contact-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(201,162,39,0.2); /* gold transparent */
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 15px;
+            color: var(--zinnia-gold);
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        /* headings and accents follow hierarchy */
+        h2, h3, h4, .fw-bold {
+            color: var(--zinnia-plum); /* default plum for depth */
+        }
+        .section-tag {
+            color: var(--zinnia-pink) !important;
+            letter-spacing: 2px;
+        }
+        .gold-accent {
+            color: var(--zinnia-gold) !important;
+        }
+        .bg-light {
+            background-color: var(--zinnia-blush) !important;  /* soft blush as light background */
+        }
+        hr.gold {
+            border-top: 2px solid var(--zinnia-gold);
+            opacity: 0.6;
+            width: 80px;
+            margin: 1rem auto;
+        }
+        /* small details: gold used sparingly */
+        .navbar-brand h1 i {
+            color: var(--zinnia-gold) !important;
+        }
+        .back-to-top {
+            background: var(--zinnia-pink) !important;
+        }
+        .back-to-top:hover {
+            background: var(--zinnia-plum) !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"><div class="spinner"></div></div>
+
+    <!-- Topbar – Blossom Pink (#C2185B) dominant, gold icons -->
+    <div class="container-fluid topbar-zinnia px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <small class="me-3 text-white"><i class="fa fa-map-marker-alt me-2" style="color:var(--zinnia-gold);"></i>KwaZulu-Natal, South Africa</small>
+                    <small class="me-3 text-white"><i class="fa fa-phone-alt me-2" style="color:var(--zinnia-gold);"></i>+27 71 519 2003</small>
+                    <small class="text-white"><i class="fa fa-envelope-open me-2" style="color:var(--zinnia-gold);"></i>zinniajohnson1@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar: Deep Plum (#4A154B) background, gold accent -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-branding">
+            <a href="indexBranding.html" class="navbar-brand p-0">
+                <h1 class="m-0"><i class="fa fa-paint-brush me-2" style="color:var(--zinnia-gold);"></i><span style="color:white;">Zinnia Branding</span></h1>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="fa fa-bars"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="indexBranding.html" class="nav-item nav-link active">Home</a>
+                    <a href="brandingAbout.html" class="nav-item nav-link">About</a>
+                    <a href="brandingServices.html" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zinnia Brands</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="index.html" class="dropdown-item">Holdings</a>
+                            <a href="indexHealth.html" class="dropdown-item">Wellness</a>
+                            <a href="indexDestination.html" class="dropdown-item">Destination</a>
+                        </div>
+                    </div>
+                    <a href="brandingContact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <!-- gold button (accent, used sparingly) -->
+                <a href="brandingContact.html" class="btn btn-zinnia-gold py-2 px-4 ms-3">Let's blossom</a>
+            </div>
+        </nav>
+
+        <!-- Hero Carousel (pink dominant in CTA, gold highlights) -->
+        <div id="heroCarousel" class="carousel slide hero-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('img/carousel-1.jpg');">
+                    <div class="carousel-caption left-caption">
+                        <h5 class="animated slideInDown">✦ Zinnia Branding</h5>
+                        <h1 class="animated zoomIn">Where Brands <span>Blossom</span></h1>
+                        <p class="animated slideInUp">100% Black female-owned creative studio. We build powerful, professional, unforgettable brands.</p>
+                        <div class="mt-4">
+                            <!-- pink hero button, gold is outline -->
+                            <a href="brandingServices.html" class="btn btn-zinnia-pink btn-lg px-5 py-3 me-3 animated slideInLeft">Our services</a>
+                            <a href="brandingContact.html" class="btn btn-outline-light btn-lg px-5 py-3 animated slideInRight">Let's talk</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('img/carousel-2.jpg');">
+                    <div class="carousel-caption right-caption">
+                        <h5 class="animated slideInDown">✦ Crafting Identity</h5>
+                        <h1 class="animated zoomIn">Strategic <span>Branding</span> Solutions</h1>
+                        <p class="animated slideInUp">From corporate identity to marketing campaigns – we tell your story with elegance.</p>
+                        <div class="mt-4">
+                            <a href="brandingServices.html" class="btn btn-zinnia-pink btn-lg px-5 py-3 me-3 animated slideInLeft">Discover more</a>
+                            <a href="brandingContact.html" class="btn btn-outline-light btn-lg px-5 py-3 animated slideInRight">Get in touch</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('img/about.jpg');">
+                    <div class="carousel-caption left-caption">
+                        <h5 class="animated slideInDown">✦ Founded by Zinnia Johnson</h5>
+                        <h1 class="animated zoomIn">100% Black <span>Female Owned</span></h1>
+                        <p class="animated slideInUp">We blend strategy with elegance to craft brands that command attention and create impact.</p>
+                        <div class="mt-4">
+                            <a href="brandingAbout.html" class="btn btn-zinnia-pink btn-lg px-5 py-3 me-3 animated slideInLeft">Our story</a>
+                            <a href="brandingContact.html" class="btn btn-outline-light btn-lg px-5 py-3 animated slideInRight">Let's blossom</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- About Section: Soft Blush background, plum text, pink & gold accents -->
+    <div class="container-fluid py-5 bg-blush" id="about">
+        <div class="container py-4">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="img/team-2.jpg" alt="Zinnia Johnson" class="img-fluid w-100">
+                        <div class="about-image-overlay" style="background: linear-gradient(to top, rgba(194,24,91,0.9), transparent);">
+                            <h4 class="fw-bold gold-accent">Zinnia Johnson</h4>
+                            <p class="text-white">Founder & Creative Director</p>
+                            <p class="small mt-2 text-white">✦ 10+ years crafting brands with purpose ✦</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="fw-bold text-uppercase section-tag" style="color:var(--zinnia-pink);">✦ About Us</h5>
+                    <h2 class="display-6 fw-bold text-plum">Founded by visionary entrepreneur <span class="text-pink">Zinnia Johnson</span></h2>
+                    <p class="fs-5" style="color:var(--zinnia-plum);">We are a 100% Black female-owned creative branding studio. We believe branding is not just design — it is identity, presence, and positioning.</p>
+                    <div class="row mt-5">
+                        <div class="col-4 text-center">
+                            <div class="feature-badge w-100">
+                                <h3 class="text-pink fw-bold mb-0">50+</h3>
+                                <small class="text-plum">Brands launched</small>
+                            </div>
+                        </div>
+                        <div class="col-4 text-center">
+                            <div class="feature-badge w-100">
+                                <h3 class="text-pink fw-bold mb-0">8</h3>
+                                <small class="text-plum">Years crafting</small>
+                            </div>
+                        </div>
+                        <div class="col-4 text-center">
+                            <div class="feature-badge w-100">
+                                <h3 class="text-pink fw-bold mb-0">100%</h3>
+                                <small class="text-plum">Black female owned</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <a href="brandingAbout.html" class="btn btn-zinnia-pink btn-lg px-5 py-3">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Preview: uses soft blush as bg (already set in bg-light = blush) -->
+    <div class="container-fluid py-5 bg-blush" id="services">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h5 class="fw-bold text-uppercase section-tag" style="color:var(--zinnia-pink);">✦ What we offer</h5>
+                <h2 class="display-6 fw-bold text-plum">Strategic & creative branding solutions</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-brand">
+                        <h4 class="fw-bold mb-3 text-pink">✦ Corporate Branding</h4>
+                        <ul class="service-list-brand text-plum">
+                            <li>Full corporate identity</li>
+                            <li>Logo design & strategy</li>
+                            <li>Brand guidelines</li>
+                            <li>Company profiles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-brand">
+                        <h4 class="fw-bold mb-3 text-pink">✦ Brand Strategy</h4>
+                        <ul class="service-list-brand text-plum">
+                            <li>Brand audits</li>
+                            <li>Messaging & tone</li>
+                            <li>Market positioning</li>
+                            <li>Rebranding solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-brand">
+                        <h4 class="fw-bold mb-3 text-pink">✦ Marketing Branding</h4>
+                        <ul class="service-list-brand text-plum">
+                            <li>Social media kits</li>
+                            <li>Campaign creatives</li>
+                            <li>Packaging design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="brandingServices.html" class="btn btn-zinnia-pink btn-lg px-5 py-3">View all services</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Preview: pink info card, plum contact card, gold accents -->
+    <div class="container-fluid py-5 bg-blush">
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="info-card"> <!-- pink background already -->
+                        <h3 class="fw-bold mb-4 gold-accent">Get in touch</h3>
+                        <div class="contact-detail">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div><p class="fs-5 fw-bold mb-0 text-white">+27 71 519 2003</p></div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div><p class="fs-5 fw-bold mb-0 text-white">zinniajohnson1@gmail.com</p></div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><p class="fs-5 fw-bold mb-0 text-white">KwaZulu-Natal</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="contact-card"> <!-- white card, gold bottom border -->
+                        <h3 class="fw-bold mb-4 text-pink">Send us a message</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control bg-blush border-0" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control bg-blush border-0" placeholder="Your Email">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control bg-blush border-0" rows="4" placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <a href="brandingContact.html" class="btn btn-zinnia-pink w-100 py-3">Go to contact page</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer: Deep Plum + gold top border -->
+    <div class="container-fluid footer-branding text-light mt-5 py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Zinnia Branding – a Zinnia Holdings brand. All Rights Reserved. ✦ Where Brands Blossom</p>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-zinnia-pink btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up text-white"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Zinnia Destination – Durban & Drakensberg Tours</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Zinnia Destination, Durban tour, Drakensberg, cultural experience, KwaZulu-Natal" name="keywords">
+    <meta content="Zinnia Destination Management – curated Durban cultural tours and Drakensberg routes." name="description">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root { 
+            --dest-forest: #1F4D3A;      /* Primary - Deep Forest Green */
+            --dest-teal: #1F7A7A;         /* Secondary - Teal Ocean Blue */
+            --dest-sunset: #F37021;        /* Accent - Zinnia Sunset Orange */
+            --dest-mustard: #F4B223;       /* Supporting - Golden Mustard */
+            --dest-sand: #F5F1E8;           /* Neutral - Warm Sand / Off White */
+            --dest-forest-rgb: 31,77,58;
+            --dest-teal-rgb: 31,122,122;
+        }
+        body {
+            background-color: var(--dest-sand);
+            font-family: 'Nunito', sans-serif;
+        }
+        .bg-forest { background: var(--dest-forest); }
+        .bg-teal { background: var(--dest-teal); }
+        .bg-sunset { background: var(--dest-sunset); }
+        .bg-mustard { background: var(--dest-mustard); }
+        .bg-sand { background: var(--dest-sand); }
+        .text-forest { color: var(--dest-forest); }
+        .text-teal { color: var(--dest-teal); }
+        .text-sunset { color: var(--dest-sunset); }
+        .text-mustard { color: var(--dest-mustard); }
+        .btn-forest { background: var(--dest-forest); color: #fff; border: none; }
+        .btn-forest:hover { background: #123d2d; }
+        .btn-teal { background: var(--dest-teal); color: #fff; }
+        .btn-teal:hover { background: #146060; }
+        .btn-sunset { background: var(--dest-sunset); color: #fff; }
+        .navbar-dest { background: var(--dest-forest) !important; }
+        
+        /* ===== BEAUTIFUL HERO: Dual image with luxurious glass panel ===== */
+        .hero-elegant {
+            position: relative;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            overflow: hidden;
+        }
+        .image-gallery {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 0;
+        }
+        .gallery-item {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: all 0.5s;
+        }
+        .gallery-item:first-child {
+            background-image: url('img/carousel-1.jpg');
+        }
+        .gallery-item:last-child {
+            background-image: url('img/carousel-2.jpg');
+        }
+        .gallery-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(31,77,58,0.4) 0%, rgba(31,122,122,0.3) 100%);
+            z-index: 1;
+        }
+        .gallery-item:first-child {
+            clip-path: polygon(0 0, 85% 0, 60% 100%, 0 100%);
+        }
+        .gallery-item:last-child {
+            clip-path: polygon(40% 0, 100% 0, 100% 100%, 15% 100%);
+            margin-left: -10%;
+        }
+        
+        /* Luxurious glass panel */
+        .luxury-panel {
+            position: relative;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 70px 70px 70px 0;
+            padding: 4rem;
+            max-width: 700px;
+            margin-left: 8%;
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.4);
+            color: white;
+            border-bottom: 8px solid var(--dest-sunset);
+            transform: translateY(0);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .luxury-panel h5 {
+            color: var(--dest-mustard);
+            letter-spacing: 5px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        .luxury-panel h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+        }
+        .luxury-panel h1 span {
+            color: var(--dest-mustard);
+            display: block;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        .luxury-panel .feature-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.5rem 0;
+        }
+        .luxury-panel .pill {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .luxury-panel .pill i {
+            color: var(--dest-mustard);
+            margin-right: 8px;
+        }
+        .luxury-panel .btn-luxury {
+            background: var(--dest-sunset);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 60px;
+            box-shadow: 0 10px 20px rgba(243,112,33,0.3);
+            transition: all 0.3s;
+        }
+        .luxury-panel .btn-luxury:hover {
+            background: #d45c1a;
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(243,112,33,0.4);
+        }
+        .luxury-panel .btn-outline-luxury {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 60px;
+            transition: all 0.3s;
+        }
+        .luxury-panel .btn-outline-luxury:hover {
+            background: white;
+            color: var(--dest-forest);
+        }
+        
+        /* ===== BEAUTIFUL ABOUT SECTION ===== */
+        .about-elegant {
+            background: white;
+            border-radius: 100px 100px 0 0;
+            margin-top: -3rem;
+            padding-top: 5rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+        }
+        .about-image-frame {
+            position: relative;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(var(--dest-forest-rgb), 0.25);
+            border: 6px solid var(--dest-mustard);
+            transform: rotate(1deg);
+        }
+        .about-image-frame img {
+            transition: 1s;
+        }
+        .about-image-frame:hover img {
+            transform: scale(1.05);
+        }
+        .floating-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--dest-teal);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 80px;
+            font-weight: bold;
+            box-shadow: 0 15px 25px rgba(31,122,122,0.3);
+            z-index: 5;
+            border: 3px solid var(--dest-mustard);
+        }
+        
+        /* ===== BEAUTIFUL SERVICES SECTION ===== */
+        .service-card-beauty {
+            background: white;
+            border-radius: 40px 40px 40px 0;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 30px rgba(var(--dest-forest-rgb), 0.08);
+            transition: 0.4s;
+            height: 100%;
+            border-right: 8px solid var(--dest-teal);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .service-card-beauty::before {
+            content: "⛱️";
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 6rem;
+            opacity: 0.1;
+            transform: rotate(10deg);
+        }
+        .service-card-beauty:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(var(--dest-forest-rgb), 0.2);
+        }
+        .service-icon-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--dest-forest), var(--dest-teal));
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 15px 20px rgba(31,77,58,0.2);
+        }
+        
+        /* ===== TOUR CARDS (for Drakensberg and Inanda) ===== */
+        .tour-card {
+            background: white;
+            border-radius: 40px 40px 40px 0;
+            padding: 2rem;
+            box-shadow: 0 20px 30px rgba(var(--dest-forest-rgb), 0.08);
+            height: 100%;
+            border-left: 8px solid var(--dest-sunset);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(var(--dest-forest-rgb), 0.2);
+        }
+        .tour-card h4 {
+            color: var(--dest-forest);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .tour-card .badge-route {
+            background: var(--dest-mustard);
+            color: var(--dest-forest);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .tour-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .tour-card ul li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .tour-card ul li::before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+            color: var(--dest-sunset);
+        }
+        .tour-highlight {
+            color: var(--dest-teal);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+        
+        /* Inanda tour special card */
+        .inanda-card {
+            background: linear-gradient(145deg, white, var(--dest-sand));
+            border-radius: 60px 60px 60px 0;
+            padding: 3rem;
+            border-left: 10px solid var(--dest-teal);
+            margin-top: 2rem;
+        }
+        .inanda-card h3 {
+            color: var(--dest-forest);
+            font-size: 2.5rem;
+        }
+        .inanda-card .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            align-items: flex-start;
+        }
+        .timeline-marker {
+            min-width: 50px;
+            height: 50px;
+            background: var(--dest-sunset);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* ===== BEAUTIFUL ITINERARY CARDS ===== */
+        .itinerary-card { 
+            background: white; 
+            border-radius: 40px; 
+            padding: 2.5rem; 
+            box-shadow: 0 20px 40px rgba(var(--dest-forest-rgb), 0.1); 
+            border-left: 8px solid var(--dest-sunset); 
+            min-height: 240px; 
+            display: flex; 
+            align-items: center;
+            transition: 0.3s;
+        }
+        .itinerary-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 25px 45px rgba(var(--dest-forest-rgb), 0.15);
+        }
+        .itinerary-icon { 
+            color: var(--dest-teal); 
+            font-size: 2.8rem; 
+            min-width: 80px; 
+            text-align: center; 
+        }
+        
+        /* ===== BEAUTIFUL CONTACT SECTION ===== */
+        .contact-artistic {
+            background: linear-gradient(145deg, var(--dest-sand), white);
+            border-radius: 100px 100px 0 0;
+            padding: 5rem 0;
+        }
+        .contact-masterpiece {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            position: relative;
+        }
+        .contact-card-art {
+            background: white;
+            border-radius: 60px 60px 60px 0;
+            padding: 3rem;
+            box-shadow: 0 40px 60px rgba(var(--dest-forest-rgb), 0.15);
+            transform: rotate(-0.5deg);
+            border-left: 10px solid var(--dest-sunset);
+            border-bottom: 10px solid var(--dest-teal);
+            transition: 0.3s;
+        }
+        .contact-card-art:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        .contact-card-art:last-child {
+            transform: rotate(0.5deg);
+            border-left: 10px solid var(--dest-teal);
+            border-bottom: 10px solid var(--dest-sunset);
+        }
+        .contact-card-art:last-child:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        .map-beauty {
+            width: 100%;
+            height: 240px;
+            border-radius: 40px;
+            overflow: hidden;
+            margin: 2.5rem 0;
+            border: 5px solid var(--dest-mustard);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+        .map-beauty iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            background: var(--dest-sand);
+            padding: 1.2rem 2rem;
+            border-radius: 70px;
+            transition: 0.2s;
+        }
+        .contact-item:hover {
+            background: var(--dest-mustard);
+            color: var(--dest-forest);
+        }
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--dest-sunset);
+        }
+        .form-control-beauty {
+            border: none;
+            background: var(--dest-sand);
+            padding: 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid var(--dest-teal);
+        }
+        .form-control-beauty:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(31,122,122,0.3);
+        }
+        
+        .footer-dest { background: var(--dest-forest); color: #ddd; }
+        .carousel-indicators [data-bs-target] { background-color: var(--dest-forest); width: 12px; height: 12px; border-radius: 50%; margin: 0 6px; }
+        .carousel-indicators .active { background-color: var(--dest-sunset); }
+    </style>
+</head>
+<body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"><div class="spinner"></div></div>
+
+    <!-- Topbar -->
+    <div class="container-fluid bg-forest px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2" style="color:var(--dest-mustard);"></i>Departure: Umhlanga / Durban</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2" style="color:var(--dest-sunset);"></i>072 143 5716</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2" style="color:var(--dest-mustard);"></i>travel@zinnia.co.za</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-dest">
+            <a href="indexDestination.html" class="navbar-brand p-0"><h1 class="m-0"><i class="fa fa-umbrella-beach me-2" style="color:var(--dest-mustard);"></i><span style="color:white;">Zinnia Destination</span></h1></a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="fa fa-bars"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="indexDestination.html" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#services" class="nav-item nav-link">Services</a>
+                    <a href="#tours" class="nav-item nav-link">Tours</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zinnia Brands</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="index.html" class="dropdown-item">Holdings</a>
+                            <a href="indexBranding.html" class="dropdown-item">Branding</a>
+                            <a href="indexHealth.html" class="dropdown-item">Wellness</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                    
+                </div>
+                <a href="#contact" class="btn btn-sunset py-2 px-4 ms-3" style="background:var(--dest-sunset); color:white;">Plan your journey</a>
+            </div>
+        </nav>
+
+        <!-- BEAUTIFUL HERO: Dual image with luxurious glass panel -->
+        <div class="hero-elegant">
+            <div class="image-gallery">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+            <div class="luxury-panel">
+                <h5 class="fw-bold">🌸 ZINNIA DESTINATION</h5>
+                <h1>Discover KZN's <span>Finest Destinations</span></h1>
+                <div class="feature-pills">
+                    <span class="pill"><i class="fas fa-mountain"></i> Drakensberg</span>
+                    <span class="pill"><i class="fas fa-city"></i> Durban</span>
+                    <span class="pill"><i class="fas fa-route"></i> Cultural Tours</span>
+                    <span class="pill"><i class="fas fa-utensils"></i> Local Cuisine</span>
+                </div>
+                <p class="fs-4 mb-5" style="color:rgba(255,255,255,0.9); font-weight:300;">From the majestic Drakensberg mountains to the vibrant townships of Durban – experience authentic KwaZulu-Natal.</p>
+                <div class="d-flex gap-4">
+                    <a href="#tours" class="btn btn-luxury btn-lg px-5 py-3">Explore tours</a>
+                    <a href="#contact" class="btn btn-outline-luxury btn-lg px-5 py-3">Book now</a>
+                </div>
+                <p class="mt-5 small"><i class="fas fa-shuttle-van me-2" style="color:var(--dest-mustard);"></i> Departures from Durban • Private guided experiences</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEAUTIFUL ABOUT SECTION -->
+    <div class="container-fluid about-elegant" id="about">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="position-relative">
+                        <div class="about-image-frame">
+                            <img src="img/feature.jpg" class="img-fluid w-100" alt="About Zinnia Destination">
+                        </div>
+                        <div class="floating-badge">
+                            <i class="fas fa-star me-2"></i> 100+ tours
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">About Zinnia Destination</h2>
+                    <div class="d-flex align-items-center mt-4 mb-4">
+                        <div style="width:100px; height:4px; background:var(--dest-sunset); border-radius:2px;"></div>
+                        <span class="ms-3 text-teal fw-semibold fs-5">Your trusted travel partner since 2015</span>
+                    </div>
+                    <p class="fs-5" style="color:var(--dest-teal);">We specialize in curated travel, destination coordination, and experiential services for individuals, groups, and organizations. Our focus is on comfort, coordination, and memorable journeys — locally and beyond.</p>
+                    <p class="mt-4 fs-5">With deep roots in KwaZulu-Natal, we design seamless, meaningful experiences that showcase beauty, culture, and hospitality with precision and care. Every journey is crafted to leave you with lasting memories.</p>
+                    <div class="mt-5">
+                        <a href="#tours" class="btn btn-forest btn-lg px-5 py-3 rounded-pill">Explore tours</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <div class="container-fluid py-5" id="services" style="background: var(--dest-sand);">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">Our Services</h2>
+                <p class="fs-4" style="color:var(--dest-teal);">Tailored experiences for every traveler</p>
+                <div style="width:150px; height:4px; background:var(--dest-sunset); margin:1rem auto; border-radius:2px;"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card-beauty">
+                        <div class="service-icon-circle">
+                            <i class="fa fa-plane"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="color:var(--dest-forest);">Corporate retreats</h4>
+                        <p class="mb-0">Tailored programs for teams to reconnect and strategize in inspiring settings.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card-beauty">
+                        <div class="service-icon-circle">
+                            <i class="fa fa-ring"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="color:var(--dest-forest);">Destination weddings</h4>
+                        <p class="mb-0">Full coordination, venues, and guest experience for your perfect day.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card-beauty">
+                        <div class="service-icon-circle">
+                            <i class="fa fa-hiking"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="color:var(--dest-forest);">Luxury safaris</h4>
+                        <p class="mb-0">Private guided journeys across Southern Africa's most beautiful reserves.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card-beauty">
+                        <div class="service-icon-circle">
+                            <i class="fa fa-city"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="color:var(--dest-forest);">Cultural city tours</h4>
+                        <p class="mb-0">Immersive half-day and full-day experiences like our signature Durban tour.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card-beauty">
+                        <div class="service-icon-circle">
+                            <i class="fa fa-ship"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="color:var(--dest-forest);">Coastal getaways</h4>
+                        <p class="mb-0">Curated escapes along the Golden Mile and beyond.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card-beauty">
+                        <div class="service-icon-circle">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="color:var(--dest-forest);">Group travel coordination</h4>
+                        <p class="mb-0">Seamless logistics for families, friends, and corporate groups.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW TOURS SECTION - Drakensberg Routes and Inanda Tour -->
+    <div class="container-fluid py-5 bg-white" id="tours">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">🗺️ Our Signature Tours</h2>
+                <p class="fs-4" style="color:var(--dest-teal);">Curated journeys across KwaZulu-Natal</p>
+                <div style="width:150px; height:4px; background:var(--dest-sunset); margin:1rem auto; border-radius:2px;"></div>
+            </div>
+
+            <!-- Drakensberg Routes -->
+            <h3 class="fw-bold mb-4" style="color:var(--dest-forest);"><i class="fas fa-mountain me-3" style="color:var(--dest-sunset);"></i>Drakensberg Tour Routes</h3>
+            <div class="row g-4">
+                <!-- Southern Drakensberg -->
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Southern Drakensberg • 2-3 days</span>
+                        <h4>📍 Underberg / Himerville - Adventure & Culture</h4>
+                        <p class="tour-highlight"><i class="fas fa-compass me-2"></i>Focus: 4x4 Sani Pass, Basotho culture, craft breweries</p>
+                        <ul>
+                            <li>Sani Pass 4x4 tour into Lesotho</li>
+                            <li>Visit Basotho villages</li>
+                            <li>Sani Pass Brewery Tour</li>
+                        </ul>
+                        <p><strong>Ideal for:</strong> Adventure lovers and cultural enthusiasts</p>
+                    </div>
+                </div>
+                <!-- Central Drakensberg -->
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Central Drakensberg • 2-3 days</span>
+                        <h4>📍 Champagne Valley / Cathedral Peak - Nature & Leisure</h4>
+                        <p class="tour-highlight"><i class="fas fa-compass me-2"></i>Focus: Scenic landscape, moderate activities, relaxation</p>
+                        <ul>
+                            <li>Scenic walks and short hikes</li>
+                            <li>Zipline or horse riding adventures</li>
+                            <li>Champagne Valley viewpoints</li>
+                        </ul>
+                        <p><strong>Ideal for:</strong> Families, couples, and leisure travelers</p>
+                    </div>
+                </div>
+                <!-- Northern Drakensberg -->
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Northern Drakensberg • 2-3 days</span>
+                        <h4>📍 Amphitheatre / Royal Natal Park - Hiking & Iconic Views</h4>
+                        <p class="tour-highlight"><i class="fas fa-compass me-2"></i>Focus: Hiking, waterfalls, panoramic vistas</p>
+                        <ul>
+                            <li>Tugela Gorge Trails</li>
+                            <li>Amphitheatre hike</li>
+                            <li>Royal Natal National Park viewpoints</li>
+                        </ul>
+                        <p><strong>Ideal for:</strong> Active travelers and hiking enthusiasts</p>
+                    </div>
+                </div>
+                <!-- Full Drakensberg Loop -->
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Full Drakensberg Loop • 5-7 days</span>
+                        <h4>📍 Comprehensive Tour - All Highlights</h4>
+                        <p class="tour-highlight"><i class="fas fa-compass me-2"></i>Focus: Combines Southern, Central & Northern highlights</p>
+                        <ul>
+                            <li>Sani Pass 4x4 adventure</li>
+                            <li>Champagne Valley scenic walks</li>
+                            <li>Tugela Gorge and Amphitheatre hikes</li>
+                        </ul>
+                        <p><strong>Ideal for:</strong> Clients wanting a complete Drakensberg experience</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Add-ons -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="bg-light p-4 rounded-4">
+                        <h5 style="color:var(--dest-forest);"><i class="fas fa-plus-circle me-2" style="color:var(--dest-sunset);"></i>Optional Add-ons for all Routes</h5>
+                        <div class="d-flex flex-wrap gap-3 mt-3">
+                            <span class="badge bg-teal text-white p-3">Helicopter rides over the Amphitheatre</span>
+                            <span class="badge bg-teal text-white p-3">Guided photography tours</span>
+                            <span class="badge bg-teal text-white p-3">Overnight in luxury lodges</span>
+                            <span class="badge bg-teal text-white p-3">Cultural experiences with local communities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inanda Township Heritage & Culture Tour -->
+            <div class="inanda-card mt-5">
+                <h3 class="fw-bold">🌼 Inanda Township Heritage & Culture Tour</h3>
+                <p class="fs-5 mb-2"><i class="fas fa-clock me-2" style="color:var(--dest-sunset);"></i>Half Day Tour</p>
+                <p class="fs-5 mb-4"><i class="fas fa-map-pin me-2" style="color:var(--dest-teal);"></i>Starting Point: Mahatma Gandhi Phoenix Settlement</p>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <p class="fs-5">Discover the vibrant heart of Inanda - a township that tells South Africa's story of struggle, resilience, and unity. This guided cultural experience explores historic landmarks, celebrates local heritage, and offers a taste of authentic township life and cuisine.</p>
+                        
+                        <h5 class="mt-4 fw-bold" style="color:var(--dest-forest);">📜 Itinerary Highlights</h5>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div><strong>Mahatma Gandhi Phoenix Settlement</strong> – Founded in 1904. Explore the museum, restored homes, and printing press where Gandhi published "The Indian Opinion".</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div><strong>Ohlange Institute</strong> – Established by Dr. John Langalibalele Dube, first ANC president. Visit where Nelson Mandela cast his vote in 1994.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div><strong>Kwa-Shembe Church</strong> – Drive past this major independent African church rooted in Zulu tradition.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <div><strong>Wall of Fame</strong> – Monument celebrating heroes of the liberation struggle.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">5</div>
+                            <div><strong>INK Township Drive</strong> – Experience Inanda, Ntuzuma & KwaMashu townships.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">6</div>
+                            <div><strong>Wiseman Car Wash</strong> – End with local cuisine at this lively community spot.</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="bg-forest text-white p-4 rounded-4">
+                            <h5 class="mb-3">Tour Details</h5>
+                            <p><i class="fas fa-clock me-2" style="color:var(--dest-mustard);"></i> Duration: Half Day</p>
+                            <p><i class="fas fa-map-marker-alt me-2" style="color:var(--dest-mustard);"></i> Start: Phoenix Settlement</p>
+                            <p><i class="fas fa-utensils me-2" style="color:var(--dest-mustard);"></i> Local cuisine included</p>
+                            <p><i class="fas fa-bus me-2" style="color:var(--dest-mustard);"></i> Private transport</p>
+                            <a href="#contact" class="btn btn-mustard w-100 mt-3" style="background:var(--dest-mustard); color:var(--dest-forest);">Book this tour</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-4 text-center fs-5">🌼 <em>End of Tour – A journey through history, heritage, and hospitality</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DURBAN CULTURAL TOUR ITINERARY CAROUSEL (existing) -->
+    <div class="container-fluid py-5 bg-light" id="durban-tour">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">🌸 Durban Cultural Half-Day Tour</h2>
+                <p class="fs-4" style="color:var(--dest-teal);">A journey through the city's rich tapestry</p>
+                <div style="width:150px; height:4px; background:var(--dest-sunset); margin:1rem auto; border-radius:2px;"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div id="itineraryCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="4000">
+                        <div class="carousel-indicators mb-3 position-relative">
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="4"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="5"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="6"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="7"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="8"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-map-pin" style="color:var(--dest-sunset);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Depart from Umhlanga / Durban Hotel</h4><p class="fs-5">Enjoy a scenic drive along the coastline into the vibrant heart of Durban City.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-dinosaur" style="color:var(--dest-teal);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Durban Natural Science Museum</h4><p class="fs-5">Located in the historic City Hall, this fascinating museum showcases natural history exhibits.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-landmark" style="color:var(--dest-mustard);"></i></div><div><h4 style="color:var(--dest-forest);">📍 KwaMuhle Museum</h4><p class="fs-5">Gain insight into Durban's social and political past during the apartheid era.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-seedling" style="color:var(--dest-forest);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Early Morning Market</h4><p class="fs-5">Fresh produce, spices, flowers, and the rhythm of local life.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-mortar-pestle" style="color:var(--dest-sunset);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Muthi Market</h4><p class="fs-5">Traditional African medicine shops with herbs, roots, and potions.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-store" style="color:var(--dest-teal);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Victoria Street Market</h4><p class="fs-5">Handcrafted souvenirs, colourful fabrics, and aromatic spice stalls.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-horse" style="color:var(--dest-mustard);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Drive via Greyville Racecourse</h4><p class="fs-5">Home of the annual Durban July.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-utensils" style="color:var(--dest-sunset);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Lunch at The Oriental Restaurant</h4><p class="fs-5">Durban-style curry, naan, and local Indian heritage flavours.</p></div></div></div></div>
+                            <div class="carousel-item"><div class="itinerary-card mx-3"><div class="d-flex"><div class="itinerary-icon me-4"><i class="fas fa-undo-alt" style="color:var(--dest-teal);"></i></div><div><h4 style="color:var(--dest-forest);">📍 Return to Umhlanga / Durban Hotel</h4><p class="fs-5">Scenic drive back along the Golden Mile, optional photo stop.</p></div></div></div></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#itineraryCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" style="background-color: var(--dest-forest); border-radius:50%;"></span></button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#itineraryCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" style="background-color: var(--dest-forest); border-radius:50%;"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INCLUSIONS SECTION -->
+    <div class="container-fluid py-5" style="background:var(--dest-sand);">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="service-card-beauty p-5 h-100" style="background: white; border-left: 10px solid var(--dest-forest);">
+                        <h3 class="fw-bold mb-4" style="color:var(--dest-forest);"><i class="fas fa-check-circle me-3" style="color:var(--dest-sunset);"></i> Included</h3>
+                        <ul class="list-unstyled fs-5">
+                            <li class="mb-3"><i class="fas fa-check-circle me-3" style="color:var(--dest-teal);"></i> Private, air-conditioned vehicle and professional guide</li>
+                            <li class="mb-3"><i class="fas fa-check-circle me-3" style="color:var(--dest-teal);"></i> Bottled water on board</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-card-beauty p-5 h-100" style="background: white; border-left: 10px solid var(--dest-teal);">
+                        <h3 class="fw-bold mb-4" style="color:var(--dest-forest);"><i class="fas fa-times-circle me-3" style="color:var(--dest-sunset);"></i> Excluded / Optional</h3>
+                        <ul class="list-unstyled fs-5">
+                            <li class="mb-3"><i class="fas fa-times-circle me-3" style="color:var(--dest-teal);"></i> Personal shopping expenses</li>
+                        </ul>
+                        <p class="mt-5 fst-italic fs-5" style="color:var(--dest-forest);">🌸 A journey through Durban's rich cultural tapestry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEAUTIFUL CONTACT SECTION -->
+    <div class="container-fluid contact-artistic" id="contact">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">Get in touch</h2>
+                <p class="fs-4" style="color:var(--dest-teal);">We'd love to hear about your travel dreams</p>
+                <div style="width:150px; height:4px; background:var(--dest-sunset); margin:1rem auto; border-radius:2px;"></div>
+            </div>
+            <div class="contact-masterpiece">
+                <!-- Left card - Contact Info with Map -->
+                <div class="contact-card-art">
+                    <h3 class="fw-bold mb-4" style="color:var(--dest-forest);">📍 Contact details</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <p class="mb-0 small text-muted">Call us</p>
+                            <p class="fs-4 fw-bold mb-0" style="color:var(--dest-forest);">072 143 5716</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p class="mb-0 small text-muted">Email</p>
+                            <p class="fs-4 fw-bold mb-0" style="color:var(--dest-forest);">travel@zinnia.co.za</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p class="mb-0 small text-muted">Departure point</p>
+                            <p class="fs-4 fw-bold mb-0" style="color:var(--dest-forest);">Umhlanga / Durban</p>
+                        </div>
+                    </div>
+                    <div class="map-beauty">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220494.30525461467!2d30.767010387011866!3d-29.85868016999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7073a097c2f69%3A0x4019c3d4d8f2e70!2sDurban!5e0!3m2!1sen!2sza!4v1710000000000!5m2!1sen!2sza" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <!-- Right card - Contact Form -->
+                <div class="contact-card-art">
+                    <h3 class="fw-bold mb-4" style="color:var(--dest-forest);">📝 Send us a message</h3>
+                    <form>
+                        <input type="text" class="form-control form-control-beauty" placeholder="Your Name">
+                        <input type="email" class="form-control form-control-beauty" placeholder="Your Email">
+                        <input type="text" class="form-control form-control-beauty" placeholder="Travel date (optional)">
+                        <textarea class="form-control form-control-beauty" rows="4" placeholder="Message / special requests"></textarea>
+                        <button class="btn btn-sunset btn-lg w-100 py-3 mt-3 rounded-pill" style="background:var(--dest-sunset);" type="submit">Send enquiry <i class="fas fa-paper-plane ms-2"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid footer-dest text-light py-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-5">© 2025 Zinnia Destination Management – a Zinnia Holdings brand. All rights reserved. 🌊🌿🌺</p>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-sunset btn-lg-square rounded-circle back-to-top" style="background:var(--dest-sunset); color:white; box-shadow:0 5px 15px rgba(243,112,33,0.4);"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
