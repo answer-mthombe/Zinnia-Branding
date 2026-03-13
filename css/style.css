@@ -654,10 +654,7 @@ a:hover {
     background-color: var(--zinnia-gold) !important;
     color: var(--zinnia-dark) !important;
 }
-.navbar-logo{
-    height:90px;
-    width:auto;
-}
+
 /* Carousel container – increase height */
 .multi-card-carousel {
     padding: 50px 0;      /* extra top & bottom space */
