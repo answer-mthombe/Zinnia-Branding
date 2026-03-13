@@ -121,6 +121,31 @@
             }
         }
     });
+    document.addEventListener('DOMContentLoaded', function() {
+  var myCarousel = document.getElementById('workMultiCarousel');
+  if (myCarousel) {
+    new bootstrap.Carousel(myCarousel, {
+      interval: 3000, // change slide every 3 seconds
+      wrap: true      // loop continuously
+    });
+  }
+});
+$(document).ready(function() {
+    // Initialize carousel with auto-slide
+    $('#webPortfolioCarousel').carousel({
+        interval: 5000,
+        wrap: true,
+        pause: false
+    });
+});
+$(document).ready(function() {
+    // Initialize carousel
+    $('#webPortfolioCarousel').carousel({
+        interval: 4000,
+        wrap: true,
+        pause: false
+    });
+});
     
 })(jQuery);
 
