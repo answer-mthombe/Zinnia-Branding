@@ -14,9 +14,11 @@
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <!-- Owl Carousel CSS (for leather slider) -->
+    <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Animate.css for advanced animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         /* ===== ZINNIA OFFICIAL COLOR SYSTEM ===== */
         :root {
@@ -38,20 +40,16 @@
         .text-plum { color: var(--zinnia-plum) !important; }
         .text-gold { color: var(--zinnia-gold) !important; }
         .text-white { color: #ffffff !important; }
-        .text-dark-plum { color: var(--zinnia-plum) !important; } /* alias */
+        .text-dark-plum { color: var(--zinnia-plum) !important; }
 
-        /* borders & accents */
-        .border-gold { border-color: var(--zinnia-gold) !important; }
-        .border-pink { border-color: var(--zinnia-pink) !important; }
-
-        /* buttons – primary pink, secondary gold (sparingly) */
+        /* buttons */
         .btn-zinnia-pink {
             background: var(--zinnia-pink);
             color: white;
             border: none;
         }
         .btn-zinnia-pink:hover {
-            background: #a0144b; /* darker pink */
+            background: #a0144b;
             color: white;
         }
         .btn-zinnia-gold {
@@ -73,18 +71,18 @@
             color: var(--zinnia-plum);
         }
 
-        /* Navbar & top bar – plum dominant, pink details */
+        /* Navbar & top bar */
         .navbar-branding {
             background: var(--zinnia-plum) !important;
         }
         .topbar-zinnia {
-            background: var(--zinnia-pink) !important;  /* pink as hero on top bar */
+            background: var(--zinnia-pink) !important;
         }
         .topbar-zinnia i {
             color: var(--zinnia-gold) !important;
         }
 
-        /* Fullscreen Carousel Hero – overlay and captions use brand */
+        /* Hero Carousel */
         .hero-carousel {
             position: relative;
             height: 100vh;
@@ -108,7 +106,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(74, 21, 75, 0.4); /* plum with transparency */
+            background: rgba(74, 21, 75, 0.4);
             z-index: 1;
         }
         .hero-carousel .carousel-caption {
@@ -160,14 +158,14 @@
             position: relative;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 30px 50px rgba(194, 24, 91, 0.25); /* pink shadow */
+            box-shadow: 0 30px 50px rgba(194, 24, 91, 0.25);
         }
         .about-image-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(194,24,91,0.9), transparent); /* pink gradient */
+            background: linear-gradient(to top, rgba(194,24,91,0.9), transparent);
             color: white;
             padding: 2rem 1.5rem 1.5rem;
             transform: translateY(70%);
@@ -184,7 +182,7 @@
             background: white;
             border-radius: 24px 24px 24px 0;
             padding: 2rem;
-            box-shadow: 0 15px 30px rgba(74,21,75,0.08); /* plum tint */
+            box-shadow: 0 15px 30px rgba(74,21,75,0.08);
             height: 100%;
             border-left: 4px solid var(--zinnia-gold);
             border-bottom: 4px solid var(--zinnia-gold);
@@ -192,7 +190,7 @@
         }
         .service-card-brand:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 40px rgba(194,24,91,0.15); /* pink glow */
+            box-shadow: 0 25px 40px rgba(194,24,91,0.15);
         }
         .service-list-brand {
             list-style: none;
@@ -219,7 +217,7 @@
             border-top: 5px solid var(--zinnia-gold);
         }
         .info-card {
-            background: var(--zinnia-pink);  /* pink dominance */
+            background: var(--zinnia-pink);
             border-radius: 30px;
             padding: 2.5rem;
             color: white;
@@ -242,22 +240,11 @@
             box-shadow: 0 25px 50px rgba(74,21,75,0.15);
             border-bottom: 4px solid var(--zinnia-gold);
         }
-        .map-wrapper {
-            border-radius: 20px;
-            overflow: hidden;
-            margin-top: 2rem;
-            border: 3px solid var(--zinnia-gold);
-        }
-        .map-wrapper iframe {
-            width: 100%;
-            height: 250px;
-            display: block;
-        }
         .contact-icon {
             display: inline-block;
             width: 50px;
             height: 50px;
-            background: rgba(201,162,39,0.2); /* gold transparent */
+            background: rgba(201,162,39,0.2);
             border-radius: 50%;
             text-align: center;
             line-height: 50px;
@@ -269,9 +256,8 @@
             align-items: center;
             margin-bottom: 1.5rem;
         }
-        /* headings and accents follow hierarchy */
         h2, h3, h4, .fw-bold {
-            color: var(--zinnia-plum); /* default plum for depth */
+            color: var(--zinnia-plum);
         }
         .section-tag {
             color: var(--zinnia-pink) !important;
@@ -281,7 +267,7 @@
             color: var(--zinnia-gold) !important;
         }
         .bg-light {
-            background-color: var(--zinnia-blush) !important;  /* soft blush as light background */
+            background-color: var(--zinnia-blush) !important;
         }
         hr.gold {
             border-top: 2px solid var(--zinnia-gold);
@@ -289,7 +275,6 @@
             width: 80px;
             margin: 1rem auto;
         }
-        /* small details: gold used sparingly */
         .navbar-brand h1 i {
             color: var(--zinnia-gold) !important;
         }
@@ -300,89 +285,267 @@
             background: var(--zinnia-plum) !important;
         }
         .navbar-logo {
-    height: 100px;
-    width: auto;
+            height: 100px;
+            width: auto;
+        }
+
+       /* ===== ADVANCED LEATHER SLIDER WITH 3D EFFECT ===== */
+.leather-slider-section {
+    background: linear-gradient(135deg, var(--zinnia-blush) 0%, #ffffff 100%);
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden;
 }
-        /* Leather slider custom styling */
-        .leather-slider-section {
-            background: var(--zinnia-blush);
-            padding: 50px 0;
-        }
-        .leather-slider-title {
-            color: var(--zinnia-plum);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        .leather-slider-title span {
-            color: var(--zinnia-gold);
-            font-style: italic;
-        }
-        .leather-slider-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: var(--zinnia-gold);
-            margin: 10px auto 0;
-        }
-        .leather-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(74,21,75,0.1);
-            margin: 15px 0;
-            border-left: 3px solid var(--zinnia-gold);
-            transition: 0.3s;
-        }
-        .leather-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 40px rgba(194,24,91,0.2);
-        }
-        .leather-card img {
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
-        }
-        .leather-caption {
-            padding: 15px;
-            text-align: center;
-            color: var(--zinnia-plum);
-            font-weight: 600;
-            background: white;
-        }
-        .owl-carousel .owl-nav button {
-            background: var(--zinnia-pink) !important;
-            color: white !important;
-            width: 40px;
-            height: 40px;
-            border-radius: 50% !important;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .owl-carousel .owl-nav button.owl-prev {
-            left: -20px;
-        }
-        .owl-carousel .owl-nav button.owl-next {
-            right: -20px;
-        }
-        .owl-carousel .owl-nav button:hover {
-            background: var(--zinnia-plum) !important;
-        }
-        .owl-carousel .owl-dots .owl-dot.active span {
-            background: var(--zinnia-gold) !important;
-        }
-        .owl-carousel .owl-dots .owl-dot:hover span {
-            background: var(--zinnia-pink) !important;
-        }
+
+.leather-slider-section::before {
+    content: "✦";
+    position: absolute;
+    font-size: 25rem;
+    opacity: 0.03;
+    top: -100px;
+    right: -50px;
+    color: var(--zinnia-gold);
+    transform: rotate(15deg);
+}
+
+.leather-slider-section::after {
+    content: "✦";
+    position: absolute;
+    font-size: 20rem;
+    opacity: 0.03;
+    bottom: -80px;
+    left: -50px;
+    color: var(--zinnia-pink);
+    transform: rotate(-10deg);
+}
+
+.leather-slider-title {
+    color: var(--zinnia-plum);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+    animation: fadeInDown 1s ease;
+}
+
+.leather-slider-title span {
+    color: var(--zinnia-gold);
+    font-style: italic;
+    font-weight: 600;
+    display: block;
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.leather-slider-title:after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--zinnia-gold), var(--zinnia-pink), var(--zinnia-gold));
+    margin: 20px auto 0;
+    border-radius: 2px;
+    animation: pulse 2s infinite;
+}
+
+/* Advanced 3D Card Styles - NO OVERLAY ICON */
+.leather-card-advanced {
+    background: white;
+    border-radius: 30px 30px 30px 0;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(74,21,75,0.15);
+    margin: 20px 10px;
+    border-left: 4px solid var(--zinnia-gold);
+    border-bottom: 4px solid var(--zinnia-gold);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.leather-card-advanced:hover {
+    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 30px 30px 40px rgba(194,24,91,0.25);
+    border-left-color: var(--zinnia-pink);
+    border-bottom-color: var(--zinnia-pink);
+}
+
+/* Image container with perfect fit */
+.leather-image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.leather-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s ease;
+}
+
+.leather-card-advanced:hover .leather-image-container img {
+    transform: scale(1.1);
+}
+
+/* Caption styling - Updated with better description matching */
+.leather-caption-advanced {
+    padding: 20px 15px;
+    text-align: center;
+    background: linear-gradient(135deg, white 0%, var(--zinnia-blush) 100%);
+    position: relative;
+}
+
+.leather-caption-advanced h4 {
+    color: var(--zinnia-plum);
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.leather-caption-advanced p {
+    color: var(--zinnia-gold);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+.leather-caption-advanced::before {
+    content: "✦";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--zinnia-gold);
+    font-size: 1.2rem;
+    background: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--zinnia-gold);
+}
+
+/* Custom Owl Carousel Navigation */
+.owl-carousel.advanced-slider .owl-nav button {
+    background: var(--zinnia-pink) !important;
+    color: white !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.owl-carousel.advanced-slider .owl-nav button:hover {
+    background: var(--zinnia-gold) !important;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.owl-carousel.advanced-slider .owl-nav button.owl-prev {
+    left: -25px;
+}
+
+.owl-carousel.advanced-slider .owl-nav button.owl-next {
+    right: -25px;
+}
+
+.owl-carousel.advanced-slider .owl-dots .owl-dot span {
+    background: var(--zinnia-blush);
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.owl-carousel.advanced-slider .owl-dots .owl-dot.active span {
+    background: var(--zinnia-gold);
+    transform: scale(1.3);
+}
+
+.owl-carousel.advanced-slider .owl-dots .owl-dot:hover span {
+    background: var(--zinnia-pink);
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+    0% { opacity: 0.6; width: 120px; }
+    50% { opacity: 1; width: 150px; }
+    100% { opacity: 0.6; width: 120px; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.leather-card-advanced {
+    animation: float 5s ease-in-out infinite;
+}
+
+.leather-card-advanced:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.leather-card-advanced:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .leather-slider-title {
+        font-size: 1.8rem;
+    }
+    .leather-slider-title span {
+        font-size: 1.2rem;
+    }
+    .leather-image-container {
+        height: 220px;
+    }
+    .owl-carousel.advanced-slider .owl-nav button.owl-prev {
+        left: -10px;
+    }
+    .owl-carousel.advanced-slider .owl-nav button.owl-next {
+        right: -10px;
+    }
+    .owl-carousel.advanced-slider .owl-nav button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leather-image-container {
+        height: 200px;
+    }
+    .leather-caption-advanced h4 {
+        font-size: 1rem;
+    }
+    .leather-caption-advanced p {
+        font-size: 0.8rem;
+    }
+}
     </style>
 </head>
 <body>
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"><div class="spinner"></div></div>
 
-    <!-- Topbar – Blossom Pink (#C2185B) dominant, gold icons -->
+    <!-- Topbar -->
     <div class="container-fluid topbar-zinnia px-5 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
@@ -404,7 +567,7 @@
         </div>
     </div>
 
-    <!-- Navbar: Deep Plum (#4A154B) background, gold accent -->
+    <!-- Navbar -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-branding">
             <a href="indexBranding.html" class="navbar-brand p-0">
@@ -426,12 +589,11 @@
                     </div>
                     <a href="brandingContact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <!-- gold button (accent, used sparingly) -->
                 <a href="brandingContact.html" class="btn btn-zinnia-gold py-2 px-4 ms-3">Let's blossom</a>
             </div>
         </nav>
 
-        <!-- Hero Carousel (pink dominant in CTA, gold highlights) -->
+        <!-- Hero Carousel -->
         <div id="heroCarousel" class="carousel slide hero-carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active" style="background-image: url('img/w1.jfif');">
@@ -440,7 +602,6 @@
                         <h1 class="animated zoomIn">Where Brands <span>Blossom</span></h1>
                         <p class="animated slideInUp">100% Black female-owned creative studio. We build powerful, professional, unforgettable brands.</p>
                         <div class="mt-4">
-                            <!-- pink hero button, gold is outline -->
                             <a href="brandingServices.html" class="btn btn-zinnia-pink btn-lg px-5 py-3 me-3 animated slideInLeft">Our services</a>
                             <a href="brandingContact.html" class="btn btn-outline-light btn-lg px-5 py-3 animated slideInRight">Let's talk</a>
                         </div>
@@ -480,7 +641,7 @@
         </div>
     </div>
 
-    <!-- About Section: Soft Blush background, plum text, pink & gold accents -->
+    <!-- About Section -->
     <div class="container-fluid py-5 bg-blush" id="about">
         <div class="container py-4">
             <div class="row g-5 align-items-center">
@@ -526,55 +687,120 @@
         </div>
     </div>
 
-    <!-- ===== LEATHER SLIDER SECTION ===== -->
-<div class="container-fluid leather-slider-section">
-    <div class="container text-center">
-        <h2 class="display-5 leather-slider-title">
-            Personalised Natural Leather Products <span>- Timeless goods locally crafted with precision.</span>
-        </h2>
-        <p class="mb-5 text-plum">Handcrafted excellence, made just for you</p>
-        
-        <div class="owl-carousel leather-carousel owl-theme">
-            <!-- Slide 1 -->
-            <div class="leather-card">
-                <img src="img/b19.jpeg" alt="Leather bag">
-                <div class="leather-caption">Leather Back Pack</div>
+   <!-- ===== ADVANCED LEATHER SLIDER WITH 3D EFFECT ===== -->
+    <div class="container-fluid leather-slider-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 leather-slider-title">
+                    Personalised Natural Leather Products 
+                    <span>- Timeless goods locally crafted with precision.</span>
+                </h2>
+                <p class="mb-0 text-plum fs-5">Handcrafted excellence, made just for you</p>
             </div>
-            <!-- Slide 2 -->
-            <div class="leather-card">
-                <img src="img/b3.jpeg" alt="Leather wallet">
-                <div class="leather-caption">Custom Branded Sun Hats</div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="leather-card">
-                <img src="img/b13.jpeg" alt="Leather belt">
-                <div class="leather-caption">Leather Work Horse Laptop Bag</div>
-            </div>
-            <!-- Slide 4 -->
-            <div class="leather-card">
-                <img src="img/b9.jpeg" alt="Leather journal">
-                <div class="leather-caption">Personalise It Your Way</div>
-            </div>
-            <!-- Slide 5 -->
-            <div class="leather-card">
-                <img src="img/b8.jpeg" alt="Leather keychain">
-                <div class="leather-caption">Leather Work Horse Laptop Bag</div>
-            </div>
-            <!-- Slide 6 -->
-            <div class="leather-card">
-                <img src="img/b14.jpeg" alt="Leather bag">
-                <div class="leather-caption">Leather Work Horse Laptop Bag</div>
-            </div>
-            <!-- Slide 7 -->
-            <div class="leather-card">
-                <img src="img/b36.jpeg" alt="Leather cardholder">
-                <div class="leather-caption">Leather Wine Box</div>
+            
+            <div class="owl-carousel advanced-slider owl-theme">
+                <!-- Slide 1 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b41.jpeg" alt="Easy wine bag">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Easy Wine Bag</h4>
+                        <p>Perfect for gifting</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b46.jpeg" alt="Leather oven gloves">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Leather Oven Gloves</h4>
+                        <p>Heat resistant & stylish</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b38.jpeg" alt="Leather moon bag">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Leather Moon Bag</h4>
+                        <p>Trendy crossbody style</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b35.jpeg" alt="Overnight carry bag">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Overnight Carry Bag</h4>
+                        <p>Weekend essential</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b25.jpeg" alt="Leather back pack">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Leather Moon Bag</h4>
+                        <p>Durable & fashionable</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 6 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b3.jpeg" alt="Leather wine box">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Custom Branded Sun Hats</h4>
+                        <p>Perfect For Sun</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 7 -->
+                <div class="leather-card-advanced">
+                    <div class="leather-image-container">
+                        <img src="img/b22.jpeg" alt="Slim Cardholder">
+                        <div class="leather-image-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="leather-caption-advanced">
+                        <h4>Baby bag</h4>
+                        <p>Minimalist design</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-    <!-- Services Preview: uses soft blush as bg (already set in bg-light = blush) -->
+    <!-- Services Preview -->
     <div class="container-fluid py-5 bg-blush" id="services">
         <div class="container py-4">
             <div class="text-center mb-5">
@@ -621,12 +847,12 @@
         </div>
     </div>
 
-    <!-- Contact Preview: pink info card, plum contact card, gold accents -->
+    <!-- Contact Preview -->
     <div class="container-fluid py-5 bg-blush">
         <div class="container py-4">
             <div class="row g-4">
                 <div class="col-lg-5">
-                    <div class="info-card"> <!-- pink background already -->
+                    <div class="info-card">
                         <h3 class="fw-bold mb-4 gold-accent">Get in touch</h3>
                         <div class="contact-detail">
                             <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
@@ -643,7 +869,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="contact-card"> <!-- white card, gold bottom border -->
+                    <div class="contact-card">
                         <h3 class="fw-bold mb-4 text-pink">Send us a message</h3>
                         <form>
                             <div class="row g-3">
@@ -667,7 +893,7 @@
         </div>
     </div>
 
-    <!-- Footer: Deep Plum + gold top border -->
+    <!-- Footer -->
     <div class="container-fluid footer-branding text-light mt-5 py-4">
         <div class="container text-center">
             <p class="mb-0">© 2025 Zinnia Branding – a Zinnia Holdings brand. All Rights Reserved. ✦ Where Brands Blossom</p>
@@ -676,27 +902,65 @@
 
     <a href="#" class="btn btn-lg btn-zinnia-pink btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up text-white"></i></a>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="js/main.js"></script>
     <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Advanced Slider Initialization -->
     <script>
         $(document).ready(function(){
-            $(".leather-carousel").owlCarousel({
+            $(".advanced-slider").owlCarousel({
                 loop: true,
-                margin: 20,
+                margin: 25,
                 nav: true,
                 dots: true,
                 autoplay: true,
                 autoplayTimeout: 3000,
                 autoplayHoverPause: true,
+                smartSpeed: 800,
+                fluidSpeed: 800,
+                navText: [
+                    '<i class="fas fa-chevron-left"></i>',
+                    '<i class="fas fa-chevron-right"></i>'
+                ],
                 responsive: {
-                    0: { items: 1 },
-                    600: { items: 2 },
-                    1000: { items: 3 },
-                    1200: { items: 4 }
+                    0: {
+                        items: 1,
+                        nav: false,
+                        dots: true
+                    },
+                    600: {
+                        items: 2,
+                        nav: true,
+                        dots: true
+                    },
+                    1000: {
+                        items: 3,
+                        nav: true,
+                        dots: true,
+                        margin: 30
+                    },
+                    1200: {
+                        items: 4,
+                        nav: true,
+                        dots: true,
+                        margin: 30
+                    }
+                },
+                onInitialized: function() {
+                    // Add animation class on start
+                    $('.leather-card-advanced').addClass('animate__animated animate__fadeInUp');
+                },
+                onTranslate: function() {
+                    // Add animation when sliding
+                    $('.leather-card-advanced').addClass('animate__animated animate__pulse');
+                    setTimeout(function() {
+                        $('.leather-card-advanced').removeClass('animate__animated animate__pulse');
+                    }, 500);
                 }
             });
         });
