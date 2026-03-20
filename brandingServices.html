@@ -150,65 +150,101 @@
             border-radius: 2px;
         }
 
-        /* Service Cards */
+        /* Enhanced Service Cards with Images - FULL SPACE FIT */
         .service-card-brand {
             background: white;
             border-radius: 30px 30px 30px 0;
-            padding: 2rem;
+            overflow: hidden;
             box-shadow: 0 15px 30px rgba(74,21,75,0.08);
             height: 100%;
-            border-left: 4px solid var(--zinnia-gold);
-            border-bottom: 4px solid var(--zinnia-gold);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            overflow: hidden;
-        }
-        .service-card-brand::before {
-            content: "✦";
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 8rem;
-            opacity: 0.03;
-            color: var(--zinnia-plum);
-            transform: rotate(15deg);
+            display: flex;
+            flex-direction: column;
         }
         .service-card-brand:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-12px);
             box-shadow: 0 30px 50px rgba(194,24,91,0.2);
-            border-left: 4px solid var(--zinnia-pink);
-            border-bottom: 4px solid var(--zinnia-pink);
         }
-        .service-icon {
+        
+        /* Service Image Container - FILLS ENTIRE SPACE */
+        .service-image-container {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--zinnia-plum), var(--zinnia-pink));
+        }
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease;
+        }
+        .service-card-brand:hover .service-image {
+            transform: scale(1.08);
+        }
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(74,21,75,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .service-card-brand:hover .service-overlay {
+            opacity: 1;
+        }
+        .service-overlay i {
+            font-size: 3rem;
+            color: var(--zinnia-gold);
+            background: rgba(255,255,255,0.95);
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--zinnia-blush), white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--zinnia-gold);
+            transform: scale(0);
+            transition: transform 0.3s ease;
         }
-        .service-icon i {
-            font-size: 2rem;
-            color: var(--zinnia-pink);
+        .service-card-brand:hover .service-overlay i {
+            transform: scale(1);
         }
-        .service-card-brand h4 {
+        .service-content {
+            padding: 1.8rem;
+            flex: 1;
+        }
+        .service-content h4 {
             color: var(--zinnia-plum);
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .service-content h4 i {
+            color: var(--zinnia-gold);
+            font-size: 1.2rem;
         }
         .service-list-brand {
             list-style: none;
             padding-left: 0;
+            margin-bottom: 0;
         }
         .service-list-brand li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             padding-left: 1.8rem;
             position: relative;
             color: #555;
+            font-size: 0.95rem;
         }
         .service-list-brand li::before {
             content: "✦";
@@ -218,7 +254,7 @@
             font-weight: bold;
         }
 
-        /* Portfolio Cards for Logo Design */
+        /* Portfolio Cards */
         .portfolio-card {
             background: white;
             border-radius: 40px 40px 40px 0;
@@ -235,96 +271,74 @@
         }
         .portfolio-img {
             width: 100%;
-            height: 250px;
+            height: 240px;
             object-fit: cover;
-            transition: transform 0.6s;
+            object-position: center;
+            background: linear-gradient(135deg, #ffffff, var(--zinnia-blush));
+            transition: all 0.5s ease;
         }
         .portfolio-card:hover .portfolio-img {
             transform: scale(1.05);
         }
         .portfolio-body {
-            padding: 1.8rem 1.5rem;
+            padding: 1.5rem;
             text-align: center;
+            border-top: 2px solid var(--zinnia-blush);
         }
         .portfolio-body h4 {
             color: var(--zinnia-plum);
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
         }
         .portfolio-body p {
-            color: #777;
-            font-size: 0.95rem;
+            color: var(--zinnia-pink);
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        /* Web Design Showcase */
-        .web-card {
+        /* Web Design Carousel - FULL SPACE FIT */
+        .web-slide-card {
             background: white;
-            border-radius: 30px;
-            padding: 2rem;
-            box-shadow: 0 15px 30px rgba(74,21,75,0.08);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(74,21,75,0.15);
+            border: 3px solid var(--zinnia-gold);
             height: 100%;
-            border-top: 4px solid var(--zinnia-pink);
-            transition: 0.3s;
+            min-height: 480px;
         }
-        .web-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(194,24,91,0.15);
+        .web-slide-card .row {
+            height: 100%;
         }
-        .web-card img {
+        .image-container {
             width: 100%;
-            height: 180px;
+            height: 100%;
+            min-height: 480px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f8f8, #ffffff);
+        }
+        .web-slide-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            border: 3px solid var(--zinnia-blush);
+            object-position: center;
+            transition: transform 0.6s ease;
         }
-        .web-card h5 {
-            color: var(--zinnia-plum);
-            font-weight: 700;
+        .web-slide-card:hover .web-slide-img {
+            transform: scale(1.05);
         }
-
-        /* Stats Section */
-        .stats-section {
-            background: linear-gradient(135deg, var(--zinnia-plum), var(--zinnia-pink));
-            padding: 5rem 0;
-            color: white;
+        .web-slide-content {
+            padding: 2.5rem;
+            background: linear-gradient(145deg, white, var(--zinnia-blush));
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .stat-item {
-            text-align: center;
-        }
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--zinnia-gold);
-        }
-        .stat-label {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Testimonials */
-        .testimonial-card {
-            background: white;
-            border-radius: 40px 40px 40px 0;
-            padding: 2rem;
-            box-shadow: 0 15px 30px rgba(74,21,75,0.05);
-            border-right: 4px solid var(--zinnia-gold);
-        }
-        .testimonial-card i {
-            color: var(--zinnia-gold);
-            font-size: 2rem;
-            opacity: 0.3;
+        .web-slide-content h3 {
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-        }
-        .client-name {
             color: var(--zinnia-plum);
-            font-weight: 700;
-            margin-top: 1rem;
-        }
-        .client-title {
-            color: #777;
-            font-size: 0.9rem;
         }
 
         /* Ecosystem Showcase */
@@ -362,6 +376,31 @@
             color: white;
         }
 
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            border-radius: 40px 40px 40px 0;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(74,21,75,0.05);
+            border-right: 4px solid var(--zinnia-gold);
+            height: 100%;
+        }
+        .testimonial-card i {
+            color: var(--zinnia-gold);
+            font-size: 2rem;
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+        .client-name {
+            color: var(--zinnia-plum);
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+        .client-title {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
         .footer-branding {
             background: var(--zinnia-plum) !important;
             color: #f0d9e0;
@@ -374,395 +413,63 @@
             background: var(--zinnia-plum) !important;
         }
 
-        /* Responsive */
+        /* Carousel Controls */
+        #webPortfolioCarousel .carousel-control-prev,
+        #webPortfolioCarousel .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+            z-index: 10;
+        }
+        #webPortfolioCarousel .carousel-control-prev {
+            left: -20px;
+        }
+        #webPortfolioCarousel .carousel-control-next {
+            right: -20px;
+        }
+        #webPortfolioCarousel .carousel-indicators {
+            position: relative;
+            bottom: -30px;
+            margin-top: 20px;
+        }
+        #webPortfolioCarousel .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--zinnia-plum);
+            opacity: 0.3;
+            margin: 0 6px;
+        }
+        #webPortfolioCarousel .carousel-indicators button.active {
+            opacity: 1;
+            background-color: var(--zinnia-gold);
+            transform: scale(1.2);
+        }
+
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.8rem; }
             .hero-content p { font-size: 1.2rem; }
             .section-title h2 { font-size: 2rem; }
+            .service-image-container { height: 200px; }
+            .portfolio-img { height: 200px; }
+            .image-container { min-height: 280px; }
+            .web-slide-content { padding: 1.5rem; }
+            .web-slide-content h3 { font-size: 1.5rem; }
+            #webPortfolioCarousel .carousel-control-prev,
+            #webPortfolioCarousel .carousel-control-next { display: none; }
         }
-       /* Add to your existing CSS for better logo display */
-.portfolio-img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain; /* Shows full logo without cropping */
-    object-position: center;
-    background: linear-gradient(135deg, #ffffff, var(--zinnia-blush));
-    padding: 25px;
-    transition: all 0.5s ease;
-}
 
-.portfolio-card {
-    background: white;
-    border-radius: 30px 30px 30px 0;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(74,21,75,0.08);
-    transition: all 0.4s;
-    height: 100%;
-    border: 2px solid transparent;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--zinnia-gold);
-    box-shadow: 0 25px 40px rgba(194,24,91,0.15);
-}
-
-.portfolio-card:hover .portfolio-img {
-    transform: scale(1.05);
-    background: white;
-}
-
-.portfolio-body {
-    padding: 1.5rem;
-    text-align: center;
-    border-top: 2px solid var(--zinnia-blush);
-}
-
-.portfolio-body h4 {
-    color: var(--zinnia-plum);
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-}
-
-.portfolio-body p {
-    color: var(--zinnia-pink);
-    font-size: 0.85rem;
-    font-weight: 500;
-    opacity: 0.9;
-}
-/* Add this CSS to your existing styles */
-.web-slide-card {
-    background: white;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(74,21,75,0.15);
-    border: 3px solid var(--zinnia-gold);
-}
-
-.web-slide-img {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    object-fit: cover;
-    transition: transform 0.8s;
-}
-
-.web-slide-card:hover .web-slide-img {
-    transform: scale(1.03);
-}
-
-.web-slide-content {
-    padding: 3rem 2.5rem;
-    background: linear-gradient(145deg, white, var(--zinnia-blush));
-}
-
-.web-slide-content h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-/* Carousel Controls */
-#webPortfolioCarousel .carousel-control-prev,
-#webPortfolioCarousel .carousel-control-next {
-    width: 60px;
-    height: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.8;
-}
-
-#webPortfolioCarousel .carousel-control-prev {
-    left: -30px;
-}
-
-#webPortfolioCarousel .carousel-control-next {
-    right: -30px;
-}
-
-#webPortfolioCarousel .carousel-control-prev:hover,
-#webPortfolioCarousel .carousel-control-next:hover {
-    opacity: 1;
-}
-
-/* Indicators */
-#webPortfolioCarousel .carousel-indicators {
-    position: relative;
-    bottom: -30px;
-    margin-top: 20px;
-}
-
-#webPortfolioCarousel .carousel-indicators button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--zinnia-plum);
-    opacity: 0.3;
-    margin: 0 6px;
-}
-
-#webPortfolioCarousel .carousel-indicators button.active {
-    opacity: 1;
-    background-color: var(--zinnia-gold);
-    transform: scale(1.2);
-}
-
-/* Thumbnail Navigation */
-.thumbnail-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    opacity: 0.7;
-}
-
-.thumbnail-nav:hover {
-    opacity: 1;
-    transform: translateY(-5px);
-}
-
-.thumbnail-nav img {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 3px solid transparent;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.thumbnail-nav:hover img {
-    border-color: var(--zinnia-gold);
-    box-shadow: 0 10px 25px rgba(194,24,91,0.2);
-}
-
-.thumbnail-nav span {
-    margin-top: 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--zinnia-plum);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    #webPortfolioCarousel .carousel-control-prev,
-    #webPortfolioCarousel .carousel-control-next {
-        display: none;
-    }
-    
-    .web-slide-content {
-        padding: 2rem 1.5rem;
-    }
-    
-    .web-slide-content h3 {
-        font-size: 1.5rem;
-    }
-    
-    .web-slide-img {
-        min-height: 250px;
-    }
-    
-    .thumbnail-nav img {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-/* Consistent image sizing for web slide cards */
-.web-slide-card {
-    background: white;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(74,21,75,0.15);
-    border: 3px solid var(--zinnia-gold);
-    height: 100%;
-    min-height: 450px;
-}
-
-.web-slide-card .row {
-    height: 100%;
-}
-
-.image-container {
-    width: 100%;
-    height: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f8f8f8, #ffffff);
-    overflow: hidden;
-}
-
-.web-slide-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;  /* Shows the entire image without cropping */
-    object-position: center;
-    padding: 20px;  /* Adds space around the image */
-    transition: transform 0.5s ease;
-    background: white;
-}
-
-.web-slide-card:hover .web-slide-img {
-    transform: scale(1.02);
-}
-
-.web-slide-content {
-    padding: 2.5rem;
-    background: linear-gradient(145deg, white, var(--zinnia-blush));
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.web-slide-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--zinnia-plum);
-}
-
-/* Carousel controls positioning */
-#webPortfolioCarousel .carousel-control-prev,
-#webPortfolioCarousel .carousel-control-next {
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.8;
-    z-index: 10;
-}
-
-#webPortfolioCarousel .carousel-control-prev {
-    left: -20px;
-}
-
-#webPortfolioCarousel .carousel-control-next {
-    right: -20px;
-}
-
-/* Indicators styling */
-#webPortfolioCarousel .carousel-indicators {
-    position: relative;
-    bottom: -30px;
-    margin-top: 20px;
-}
-
-#webPortfolioCarousel .carousel-indicators button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--zinnia-plum);
-    opacity: 0.3;
-    margin: 0 6px;
-}
-
-#webPortfolioCarousel .carousel-indicators button.active {
-    opacity: 1;
-    background-color: var(--zinnia-gold);
-    transform: scale(1.2);
-}
-
-/* Thumbnail navigation */
-.thumbnail-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    opacity: 0.7;
-}
-
-.thumbnail-nav:hover {
-    opacity: 1;
-    transform: translateY(-5px);
-}
-
-.thumbnail-nav img {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 3px solid transparent;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.thumbnail-nav:hover img {
-    border-color: var(--zinnia-gold);
-    box-shadow: 0 10px 25px rgba(194,24,91,0.2);
-}
-
-.thumbnail-nav span {
-    margin-top: 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--zinnia-plum);
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .image-container {
-        height: 350px;
-    }
-    
-    .web-slide-content {
-        padding: 2rem;
-    }
-    
-    .web-slide-content h3 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .web-slide-card {
-        min-height: auto;
-    }
-    
-    .image-container {
-        height: 300px;
-    }
-    
-    .web-slide-content {
-        padding: 1.5rem;
-    }
-    
-    #webPortfolioCarousel .carousel-control-prev,
-    #webPortfolioCarousel .carousel-control-next {
-        display: none;
-    }
-    
-    .thumbnail-nav img {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .thumbnail-nav span {
-        font-size: 0.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-container {
-        height: 250px;
-    }
-    
-    .web-slide-img {
-        padding: 10px;
-    }
-}
-</style>
-
-
-<!-- Add jQuery for thumbnail navigation -->
-
+        @media (max-width: 992px) {
+            .image-container { min-height: 350px; }
+        }
+    </style>
 </head>
 <body>
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"><div class="spinner"></div></div>
 
-    <!-- Topbar – Blossom Pink, gold icons -->
+    <!-- Topbar -->
     <div class="container-fluid topbar-zinnia px-5 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
@@ -784,7 +491,7 @@
         </div>
     </div>
 
-    <!-- Navbar: Deep Plum background, gold accent -->
+    <!-- Navbar -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-branding">
             <a href="indexBranding.html" class="navbar-brand p-0">
@@ -824,7 +531,7 @@
         </div>
     </div>
 
-    <!-- Ecosystem Showcase - NEW SECTION -->
+    <!-- Ecosystem Showcase -->
     <div class="container-fluid py-5 bg-white" id="ecosystem">
         <div class="container py-4">
             <div class="section-title">
@@ -833,7 +540,6 @@
                 <div class="divider"></div>
                 <p class="fs-5 text-muted">From concept to completion – we bring your brand to life</p>
             </div>
-
             <div class="ecosystem-showcase">
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6">
@@ -877,469 +583,258 @@
         </div>
     </div>
 
-    <!-- Logo Design Portfolio Section - Zinnia Brands Showcase (Simple Version) -->
-<div class="container-fluid py-5 bg-blush" id="portfolio">
-    <div class="container py-4">
-        <div class="section-title">
-            <h5>Our Brand Ecosystem</h5>
-            <h2>The Zinnia Family</h2>
-            <div class="divider"></div>
-            <p class="fs-5 text-muted">A collection of purpose-driven brands</p>
-        </div>
-
-        <div class="row g-4">
-            <!-- Zinnia Holdings -->
-            <div class="col-lg-3 col-md-6">
-                <div class="portfolio-card">
-                    <img src="img/holding.png" class="portfolio-img" alt="Zinnia Holdings Logo">
-                    <div class="portfolio-body">
-                        <h4>Zinnia Holdings</h4>
-                        <p>Empowering Brands. Enriching Lives.</p>
+    <!-- Logo Design Portfolio Section -->
+    <div class="container-fluid py-5 bg-blush" id="portfolio">
+        <div class="container py-4">
+            <div class="section-title">
+                <h5>Our Brand Ecosystem</h5>
+                <h2>The Zinnia Family</h2>
+                <div class="divider"></div>
+                <p class="fs-5 text-muted">A collection of purpose-driven brands</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="img/holding.png" class="portfolio-img" alt="Zinnia Holdings Logo">
+                        <div class="portfolio-body">
+                            <h4>Zinnia Holdings</h4>
+                            <p>Empowering Brands. Enriching Lives.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="img/health.png" class="portfolio-img" alt="Zinnia Health & Wellness Logo">
+                        <div class="portfolio-body">
+                            <h4>Zinnia Health & Wellness</h4>
+                            <p>Nurturing Healthy Families</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="img/branding.png" class="portfolio-img" alt="Zinnia Branding Logo">
+                        <div class="portfolio-body">
+                            <h4>Zinnia Branding</h4>
+                            <p>Crafting Brands with Purpose</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="img/destination.png" class="portfolio-img" alt="Zinnia Destination Logo">
+                        <div class="portfolio-body">
+                            <h4>Zinnia Destination</h4>
+                            <p>Curated Journeys. Exceptional Experiences.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Zinnia Health & Wellness -->
-            <div class="col-lg-3 col-md-6">
-                <div class="portfolio-card">
-                    <img src="img/health.png" class="portfolio-img" alt="Zinnia Health & Wellness Logo">
-                    <div class="portfolio-body">
-                        <h4>Zinnia Health & Wellness</h4>
-                        <p>Nurturing Healthy Families</p>
-                    </div>
-                </div>
+            <div class="text-center mt-5">
+                <a href="brandingContact.html" class="btn btn-zinnia-pink">Ready for Your Brand?</a>
             </div>
-            
-            <!-- Zinnia Branding -->
-            <div class="col-lg-3 col-md-6">
-                <div class="portfolio-card">
-                    <img src="img/branding.png" class="portfolio-img" alt="Zinnia Branding Logo">
-                    <div class="portfolio-body">
-                        <h4>Zinnia Branding</h4>
-                        <p>Crafting Brands with Purpose</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Zinnia Destination -->
-            <div class="col-lg-3 col-md-6">
-                <div class="portfolio-card">
-                    <img src="img/destination.png" class="portfolio-img" alt="Zinnia Destination Logo">
-                    <div class="portfolio-body">
-                        <h4>Zinnia Destination</h4>
-                        <p>Curated Journeys. Exceptional Experiences.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-5">
-            <a href="brandingContact.html" class="btn btn-zinnia-pink">Ready for Your Brand?</a>
         </div>
     </div>
-</div>
 
-    <!-- Services Section with Enhanced Cards -->
+    <!-- Services Section with FULL SPACE FIT IMAGES -->
     <div class="container-fluid py-5 bg-white" id="services">
         <div class="container py-4">
             <div class="section-title">
                 <h5>What We Offer</h5>
                 <h2>Comprehensive Branding Solutions</h2>
                 <div class="divider"></div>
+                <p class="fs-5 text-muted">Each service is tailored to elevate your brand presence</p>
             </div>
 
             <div class="row g-4">
                 <!-- Corporate Branding -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card-brand">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
+                        <div class="service-image-container">
+                            <img src="img/branding.png" class="service-image" alt="Corporate Branding">
+                            <div class="service-overlay">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
                         </div>
-                        <h4>✦ Corporate Branding</h4>
-                        <ul class="service-list-brand">
-                            <li>Full corporate identity development</li>
-                            <li>Logo design & brand strategy</li>
-                            <li>Brand guidelines & style guides</li>
-                            <li>Company profiles & stationery</li>
-                            <li>Presentation & pitch deck design</li>
-                        </ul>
+                        <div class="service-content">
+                            <h4><i class="fas fa-star-of-life"></i> Corporate Branding</h4>
+                            <ul class="service-list-brand">
+                                <li>Full corporate identity development</li>
+                                <li>Logo design & brand strategy</li>
+                                <li>Brand guidelines & style guides</li>
+                                <li>Company profiles & stationery</li>
+                                <li>Presentation & pitch deck design</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
                 <!-- Brand Strategy -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card-brand">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
+                        <div class="service-image-container">
+                            <img src="img/w3.jfif" class="service-image" alt="Brand Strategy">
+                            <div class="service-overlay">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
                         </div>
-                        <h4>✦ Brand Strategy</h4>
-                        <ul class="service-list-brand">
-                            <li>Brand audits & competitor analysis</li>
-                            <li>Brand messaging & tone development</li>
-                            <li>Market positioning strategy</li>
-                            <li>Rebranding solutions</li>
-                            <li>Brand architecture</li>
-                        </ul>
+                        <div class="service-content">
+                            <h4><i class="fas fa-chart-line"></i> Brand Strategy</h4>
+                            <ul class="service-list-brand">
+                                <li>Brand audits & competitor analysis</li>
+                                <li>Brand messaging & tone development</li>
+                                <li>Market positioning strategy</li>
+                                <li>Rebranding solutions</li>
+                                <li>Brand architecture</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- Web Design - NEW -->
+
+                <!-- Web Design -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card-brand">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
+                        <div class="service-image-container">
+                            <img src="img/p5.jpeg" class="service-image" alt="Web Design">
+                            <div class="service-overlay">
+                                <i class="fas fa-code"></i>
+                            </div>
                         </div>
-                        <h4>✦ Web Design</h4>
-                        <ul class="service-list-brand">
-                            <li>Custom website design</li>
-                            <li>Responsive mobile-first development</li>
-                            <li>E-commerce solutions</li>
-                            <li>UI/UX design</li>
-                            <li>Website maintenance</li>
-                        </ul>
+                        <div class="service-content">
+                            <h4><i class="fas fa-code"></i> Web Design</h4>
+                            <ul class="service-list-brand">
+                                <li>Custom website design</li>
+                                <li>Responsive mobile-first development</li>
+                                <li>E-commerce solutions</li>
+                                <li>UI/UX design</li>
+                                <li>Website maintenance</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
                 <!-- Marketing Branding -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card-brand">
-                        <div class="service-icon">
-                            <i class="fas fa-bullhorn"></i>
+                        <div class="service-image-container">
+                            <img src="img/b25.jpeg" class="service-image" alt="Marketing Branding">
+                            <div class="service-overlay">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
                         </div>
-                        <h4>✦ Marketing Branding</h4>
-                        <ul class="service-list-brand">
-                            <li>Social media branding kits</li>
-                            <li>Campaign creatives</li>
-                            <li>Flyers, posters & digital adverts</li>
-                            <li>Packaging design</li>
-                            <li>Product branding</li>
-                        </ul>
+                        <div class="service-content">
+                            <h4><i class="fas fa-bullhorn"></i> Marketing Branding</h4>
+                            <ul class="service-list-brand">
+                                <li>Social media branding kits</li>
+                                <li>Campaign creatives</li>
+                                <li>Flyers, posters & digital adverts</li>
+                                <li>Packaging design</li>
+                                <li>Product branding</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
                 <!-- Branded Gifts -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card-brand">
-                        <div class="service-icon">
-                            <i class="fas fa-gift"></i>
+                        <div class="service-image-container">
+                            <img src="img/b41.jpeg" class="service-image" alt="Branded Gifts">
+                            <div class="service-overlay">
+                                <i class="fas fa-gift"></i>
+                            </div>
                         </div>
-                        <h4>✦ Branded Gifts</h4>
-                        <ul class="service-list-brand">
-                            <li>Corporate gifting solutions</li>
-                            <li>Branded merchandise</li>
-                            <li>Executive gift sets</li>
-                            <li>Event branding & promotional items</li>
-                        </ul>
+                        <div class="service-content">
+                            <h4><i class="fas fa-gift"></i> Branded Gifts</h4>
+                            <ul class="service-list-brand">
+                                <li>Corporate gifting solutions</li>
+                                <li>Branded merchandise</li>
+                                <li>Executive gift sets</li>
+                                <li>Event branding & promotional items</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
                 <!-- Print & Production -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card-brand">
-                        <div class="service-icon">
-                            <i class="fas fa-print"></i>
+                        <div class="service-image-container">
+                            <img src="img/b53.jpeg" class="service-image" alt="Print & Production">
+                            <div class="service-overlay">
+                                <i class="fas fa-print"></i>
+                            </div>
                         </div>
-                        <h4>✦ Print & Production</h4>
-                        <ul class="service-list-brand">
-                            <li>High-quality print solutions</li>
-                            <li>Signage & large format branding</li>
-                            <li>Corporate wear branding</li>
-                            <li>Brochures & catalogues</li>
-                        </ul>
+                        <div class="service-content">
+                            <h4><i class="fas fa-print"></i> Print & Production</h4>
+                            <ul class="service-list-brand">
+                                <li>High-quality print solutions</li>
+                                <li>Signage & large format branding</li>
+                                <li>Corporate wear branding</li>
+                                <li>Brochures & catalogues</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-   <!-- Web Design Showcase - Sliding Portfolio -->
-<div class="container-fluid py-5 bg-blush">
-    <div class="container py-4">
-        <div class="section-title">
-            <h5>Digital Excellence</h5>
-            <h2>Web Design Portfolio</h2>
-            <div class="divider"></div>
-            <p class="fs-5 text-muted">Beautiful, functional websites we've built</p>
-        </div>
-
-        <!-- Sliding Portfolio Carousel -->
-        <div class="position-relative px-4">
-            <div id="webPortfolioCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                <!-- Indicators -->
-                <div class="carousel-indicators mb-4">
-                    <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                    <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    <!-- Slide 1 - Pink Consult Image -->
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="web-slide-card">
-                                    <div class="row g-0 align-items-center">
-                                        <div class="col-lg-7">
-                                            <div class="image-container">
-                                                <img src="img/p5.jpeg" class="web-slide-img" alt="Pink Consult Brand Identity">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="web-slide-content">
-                                                <span class="badge bg-pink text-white mb-3">Consulting Brand Identity</span>
-                                                <h3 class="text-plum fw-bold">Pink Consult</h3>
-                                                <p class="text-muted">Professional brand identity design for a consulting firm. Clean, modern, and trustworthy visual language that communicates expertise and reliability.</p>
-                                                <div class="mt-4">
-                                                    <span class="me-3"><i class="fas fa-check-circle text-gold"></i> Brand Strategy</span>
-                                                    <span><i class="fas fa-check-circle text-gold"></i> Visual Identity</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 - Ziyandizibusise PTY LTD Image -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="web-slide-card">
-                                    <div class="row g-0 align-items-center">
-                                        <div class="col-lg-7">
-                                            <div class="image-container">
-                                                <img src="img/p4.jpeg" class="web-slide-img" alt="Ziyandizibusise PTY LTD Corporate Identity">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="web-slide-content">
-                                                <span class="badge bg-pink text-white mb-3">Corporate Brand Identity</span>
-                                                <h3 class="text-plum fw-bold">Ziyandizibusise PTY LTD</h3>
-                                                <p class="text-muted">Distinctive corporate identity for a growing enterprise. The design reflects strength, professionalism, and African heritage.</p>
-                                                <div class="mt-4">
-                                                    <span class="me-3"><i class="fas fa-check-circle text-gold"></i> Logo Design</span>
-                                                    <span><i class="fas fa-check-circle text-gold"></i> Corporate Stationery</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 - Forever Aloe Vera Image -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="web-slide-card">
-                                    <div class="row g-0 align-items-center">
-                                        <div class="col-lg-7">
-                                            <div class="image-container">
-                                                <img src="img/p5.jpeg" class="web-slide-img" alt="Forever Aloe Vera Product Packaging">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="web-slide-content">
-                                                <span class="badge bg-pink text-white mb-3">Product Packaging Design</span>
-                                                <h3 class="text-plum fw-bold">Forever Aloe Vera</h3>
-                                                <p class="text-muted">Clean, refreshing packaging design for Forever Aloe Vera Gel. The design emphasizes purity, natural ingredients, and health benefits.</p>
-                                                <div class="mt-4">
-                                                    <span class="me-3"><i class="fas fa-check-circle text-gold"></i> Packaging Design</span>
-                                                    <span><i class="fas fa-check-circle text-gold"></i> Product Labeling</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 - Zulu Currency Image -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="web-slide-card">
-                                    <div class="row g-0 align-items-center">
-                                        <div class="col-lg-7">
-                                            <div class="image-container">
-                                                <img src="img/p6.jpeg" class="web-slide-img" alt="Zulu Currency Financial Branding">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="web-slide-content">
-                                                <span class="badge bg-pink text-white mb-3">Financial Brand Identity</span>
-                                                <h3 class="text-plum fw-bold">Zulu Currency</h3>
-                                                <p class="text-muted">Bold financial brand identity that combines traditional Zulu elements with modern financial services aesthetics.</p>
-                                                <div class="mt-4">
-                                                    <span class="me-3"><i class="fas fa-check-circle text-gold"></i> Brand Identity</span>
-                                                    <span><i class="fas fa-check-circle text-gold"></i> Financial Sector</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5 - Omega 1911 Image -->
-                    <div class="carousel-item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="web-slide-card">
-                                    <div class="row g-0 align-items-center">
-                                        <div class="col-lg-7">
-                                            <div class="image-container">
-                                                <img src="img/p7.jpeg" class="web-slide-img" alt="Omega 1911 Luxury Brand Identity">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="web-slide-content">
-                                                <span class="badge bg-pink text-white mb-3">Luxury Brand Identity</span>
-                                                <h3 class="text-plum fw-bold">Omega 1911</h3>
-                                                <p class="text-muted">Elegant and timeless brand identity for a luxury goods line. The design speaks to heritage, quality, and exclusivity.</p>
-                                                <div class="mt-4">
-                                                    <span class="me-3"><i class="fas fa-check-circle text-gold"></i> Luxury Branding</span>
-                                                    <span><i class="fas fa-check-circle text-gold"></i> Heritage Design</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: var(--zinnia-plum); border-radius: 50%; padding: 1.5rem;"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: var(--zinnia-plum); border-radius: 50%; padding: 1.5rem;"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Thumbnail Navigation -->
-        
-    </div>
-</div>
-        
-       
-
-    
-
-    <!-- Testimonials -->
-    <div class="container-fluid py-5 bg-white">
+    <!-- Web Design Showcase - Sliding Portfolio -->
+    <div class="container-fluid py-5 bg-blush">
         <div class="container py-4">
             <div class="section-title">
-                <h5>Client Love</h5>
-                <h2>What Our Clients Say</h2>
+                <h5>Digital Excellence</h5>
+                <h2>Web Design Portfolio</h2>
                 <div class="divider"></div>
+                <p class="fs-5 text-muted">Beautiful, functional websites we've built</p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <i class="fas fa-quote-right"></i>
-                        <p class="fs-5">"Zinnia Branding transformed our visual identity completely. The logo and website design exceeded our expectations!"</p>
-                        <div class="client-name">Sarah Khumalo</div>
-                        <div class="client-title">CEO, Elegance Couture</div>
+            <div class="position-relative px-4">
+                <div id="webPortfolioCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-indicators mb-4">
+                        <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#webPortfolioCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <i class="fas fa-quote-right"></i>
-                        <p class="fs-5">"Professional, creative, and attentive. They understood our brand vision perfectly and delivered stunning results."</p>
-                        <div class="client-name">Thabo Ndlovu</div>
-                        <div class="client-title">Founder, Innovate Tech</div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <i class="fas fa-quote-right"></i>
-                        <p class="fs-5">"The web design team created a beautiful, user-friendly site that has increased our bookings significantly."</p>
-                        <div class="client-name">Priya Naidoo</div>
-                        <div class="client-title">Owner, Savanna Bistro</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Why Choose Us Card - Enhanced -->
-    <div class="container-fluid py-5 bg-blush">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="service-card-brand p-5 text-center" style="background:var(--zinnia-light);">
-                        <h2 class="fw-bold mb-4 text-plum">Why Choose Zinnia Branding?</h2>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="ecosystem-icon" style="width:60px; height:60px; margin:0 auto 1rem;">
-                                    <i class="fas fa-crown" style="font-size:1.8rem;"></i>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="web-slide-card">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-lg-7">
+                                                <div class="image-container">
+                                                    <img src="img/p5.jpeg" class="web-slide-img" alt="Pink Consult Brand Identity">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="web-slide-content">
+                                                    <span class="badge bg-pink text-white mb-3">Consulting Brand Identity</span>
+                                                    <h3 class="text-plum fw-bold">Pink Consult</h3>
+                                                    <p class="text-muted">Professional brand identity design for a consulting firm. Clean, modern, and trustworthy visual language that communicates expertise and reliability.</p>
+                                                    <div class="mt-4">
+                                                        <span class="me-3"><i class="fas fa-check-circle text-gold"></i> Brand Strategy</span>
+                                                        <span><i class="fas fa-check-circle text-gold"></i> Visual Identity</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="fw-bold">100% Black Female Owned</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="ecosystem-icon" style="width:60px; height:60px; margin:0 auto 1rem;">
-                                    <i class="fas fa-gem" style="font-size:1.8rem;"></i>
-                                </div>
-                                <p class="fw-bold">Premium Quality</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="ecosystem-icon" style="width:60px; height:60px; margin:0 auto 1rem;">
-                                    <i class="fas fa-heart" style="font-size:1.8rem;"></i>
-                                </div>
-                                <p class="fw-bold">Personalized Approach</p>
                             </div>
                         </div>
-                        <a href="brandingContact.html" class="btn btn-zinnia-pink btn-lg mt-4">Start Your Brand Journey</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="container-fluid footer-branding text-light mt-5 py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h3 class="text-white mb-4"><i class="fa fa-paint-brush me-2" style="color:var(--zinnia-gold);"></i>Zinnia Branding</h3>
-                    <p>Where brands blossom through strategic creativity and elegant design. We bring your vision to life.</p>
-                </div>
-                <div class="col-lg-4">
-                    <h5 class="text-white mb-4">Quick Links</h5>
-                    <div class="d-flex flex-column">
-                        <a href="#" class="text-light mb-2">Home</a>
-                        <a href="#" class="text-light mb-2">About</a>
-                        <a href="#" class="text-light mb-2">Services</a>
-                        <a href="#" class="text-light mb-2">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <h5 class="text-white mb-4">Connect With Us</h5>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="btn btn-outline-light btn-square rounded-circle"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-square rounded-circle"><i class="fab fa-behance"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="mt-4 bg-light opacity-25">
-            <p class="mb-0 text-center">© 2025 Zinnia Branding – a Zinnia Holdings brand. All Rights Reserved. ✦ Where Brands Blossom</p>
-        </div>
-    </div>
-
-    <a href="#" class="btn btn-lg btn-zinnia-pink btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up text-white"></i></a>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="web-slide-card">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-lg-7">
+                                                <div class="image-container">
+                                                    <img src="img/p4.jpeg" class="web-slide-img" alt="Ziyandizibusise PTY LTD">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="web-slide-content">
+                                                    <span class="badge bg-pink text-white mb

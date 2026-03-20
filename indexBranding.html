@@ -14,6 +14,9 @@
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <!-- Owl Carousel CSS (for leather slider) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         /* ===== ZINNIA OFFICIAL COLOR SYSTEM ===== */
         :root {
@@ -300,6 +303,80 @@
     height: 100px;
     width: auto;
 }
+        /* Leather slider custom styling */
+        .leather-slider-section {
+            background: var(--zinnia-blush);
+            padding: 50px 0;
+        }
+        .leather-slider-title {
+            color: var(--zinnia-plum);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .leather-slider-title span {
+            color: var(--zinnia-gold);
+            font-style: italic;
+        }
+        .leather-slider-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--zinnia-gold);
+            margin: 10px auto 0;
+        }
+        .leather-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(74,21,75,0.1);
+            margin: 15px 0;
+            border-left: 3px solid var(--zinnia-gold);
+            transition: 0.3s;
+        }
+        .leather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px rgba(194,24,91,0.2);
+        }
+        .leather-card img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .leather-caption {
+            padding: 15px;
+            text-align: center;
+            color: var(--zinnia-plum);
+            font-weight: 600;
+            background: white;
+        }
+        .owl-carousel .owl-nav button {
+            background: var(--zinnia-pink) !important;
+            color: white !important;
+            width: 40px;
+            height: 40px;
+            border-radius: 50% !important;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .owl-carousel .owl-nav button.owl-prev {
+            left: -20px;
+        }
+        .owl-carousel .owl-nav button.owl-next {
+            right: -20px;
+        }
+        .owl-carousel .owl-nav button:hover {
+            background: var(--zinnia-plum) !important;
+        }
+        .owl-carousel .owl-dots .owl-dot.active span {
+            background: var(--zinnia-gold) !important;
+        }
+        .owl-carousel .owl-dots .owl-dot:hover span {
+            background: var(--zinnia-pink) !important;
+        }
     </style>
 </head>
 <body>
@@ -449,6 +526,54 @@
         </div>
     </div>
 
+    <!-- ===== LEATHER SLIDER SECTION ===== -->
+<div class="container-fluid leather-slider-section">
+    <div class="container text-center">
+        <h2 class="display-5 leather-slider-title">
+            Personalised Natural Leather Products <span>- Timeless goods locally crafted with precision.</span>
+        </h2>
+        <p class="mb-5 text-plum">Handcrafted excellence, made just for you</p>
+        
+        <div class="owl-carousel leather-carousel owl-theme">
+            <!-- Slide 1 -->
+            <div class="leather-card">
+                <img src="img/b19.jpeg" alt="Leather bag">
+                <div class="leather-caption">Leather Back Pack</div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="leather-card">
+                <img src="img/b3.jpeg" alt="Leather wallet">
+                <div class="leather-caption">Custom Branded Sun Hats</div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="leather-card">
+                <img src="img/b13.jpeg" alt="Leather belt">
+                <div class="leather-caption">Leather Work Horse Laptop Bag</div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="leather-card">
+                <img src="img/b9.jpeg" alt="Leather journal">
+                <div class="leather-caption">Personalise It Your Way</div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="leather-card">
+                <img src="img/b8.jpeg" alt="Leather keychain">
+                <div class="leather-caption">Leather Work Horse Laptop Bag</div>
+            </div>
+            <!-- Slide 6 -->
+            <div class="leather-card">
+                <img src="img/b14.jpeg" alt="Leather bag">
+                <div class="leather-caption">Leather Work Horse Laptop Bag</div>
+            </div>
+            <!-- Slide 7 -->
+            <div class="leather-card">
+                <img src="img/b36.jpeg" alt="Leather cardholder">
+                <div class="leather-caption">Leather Wine Box</div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Services Preview: uses soft blush as bg (already set in bg-light = blush) -->
     <div class="container-fluid py-5 bg-blush" id="services">
         <div class="container py-4">
@@ -555,7 +680,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".leather-carousel").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 },
+                    1200: { items: 4 }
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
-
