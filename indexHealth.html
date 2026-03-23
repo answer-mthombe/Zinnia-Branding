@@ -1,7 +1,3 @@
-<!-- ============================================= -->
-<!-- FILE: indexHealth.html (with Forever Living color palette) -->
-<!-- Zinnia Health & Wellness – complete detailed page -->
-<!-- ============================================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,35 +18,18 @@
     
     <style>
         /* ===== ZINNIA HEALTH & WELLNESS COLOR PALETTE ===== */
-        /* Forever Living Yellow (Hero Color) - 50% usage */
         :root { 
-            --fl-yellow: #D4A017;      /* Primary hero color - 50% */
-            --fl-green: #2E7D32;        /* Wellness anchor - 25% */
-            --fl-white: #FFFFFF;         /* Clean base - 20% */
-            --fl-gold: #C9A227;          /* Premium accent - 5% */
-            --fl-blush: #E8A5B8;          /* Optional campaign color */
+            --fl-yellow: #D4A017;
+            --fl-green: #2E7D32;
+            --fl-white: #FFFFFF;
+            --fl-gold: #C9A227;
         }
         
-        /* Yellow backgrounds (50% of design) */
         .bg-fl-yellow { background-color: var(--fl-yellow) !important; }
         .text-fl-yellow { color: var(--fl-yellow) !important; }
-        .border-fl-yellow { border-color: var(--fl-yellow) !important; }
-        
-        /* Green accents (25% of design) */
         .bg-fl-green { background-color: var(--fl-green) !important; }
         .text-fl-green { color: var(--fl-green) !important; }
-        .border-fl-green { border-color: var(--fl-green) !important; }
         
-        /* Gold accents (5% of design) */
-        .bg-fl-gold { background-color: var(--fl-gold) !important; }
-        .text-fl-gold { color: var(--fl-gold) !important; }
-        .border-fl-gold { border-color: var(--fl-gold) !important; }
-        
-        /* Blush for campaigns (optional) */
-        .bg-fl-blush { background-color: var(--fl-blush) !important; }
-        .text-fl-blush { color: var(--fl-blush) !important; }
-        
-        /* Button styles */
         .btn-fl-yellow {
             background-color: var(--fl-yellow);
             color: #000;
@@ -62,7 +41,6 @@
             background-color: #b88914;
             color: #000;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212,160,23,0.3);
         }
         
         .btn-fl-green {
@@ -76,117 +54,220 @@
             background-color: #236126;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(46,125,50,0.3);
         }
         
-        /* Navbar customization */
         .navbar-fl {
             background-color: var(--fl-yellow) !important;
         }
-        
         .navbar-fl .navbar-nav .nav-link {
             color: #000 !important;
             font-weight: 600;
         }
-        
         .navbar-fl .navbar-nav .nav-link:hover,
         .navbar-fl .navbar-nav .nav-link.active {
             color: var(--fl-green) !important;
         }
         
-        .navbar-fl .navbar-brand h1 {
-            color: #000 !important;
-        }
-        
-        .navbar-fl .dropdown-menu {
-            border-top: 3px solid var(--fl-green);
-        }
-        
-        /* Hero section with yellow dominance */
         .wellness-header { 
             background: linear-gradient(135deg, var(--fl-yellow) 0%, #e5b43c 100%);
-            padding: 5rem 0;
+            padding: 4rem 0;
             position: relative;
             overflow: hidden;
         }
         
-        .wellness-header::before {
-            content: "🌿";
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            font-size: 150px;
-            opacity: 0.1;
-            transform: rotate(15deg);
-            color: var(--fl-green);
+        /* CELLPHONE SHAPE VIDEO - ONLY control the video width */
+.cellphone-video {
+    position: relative;
+    max-width: 420px;  /* Adjust this value to control video width */
+    margin: 0;
+    border-radius: 45px;
+    overflow: hidden;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    background: transparent;
+}
+
+.cellphone-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 45px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+}
+
+/* Optional: Add a slight right alignment without affecting other content */
+@media (min-width: 992px) {
+    .cellphone-video {
+        margin-left: auto;  /* Only pushes the video to the right */
+        margin-right: 0;
+    }
+}
+        /* Modern video cards - Properly sized */
+        .modern-video-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: transparent;
+            cursor: pointer;
+            max-width: 100%;
         }
         
-        .wellness-header::after {
-            content: "";
+        .modern-video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+        }
+        
+        .modern-video-card video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+            background: #f5f5f5;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        
+        .video-label {
             position: absolute;
-            top: 0;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.7), transparent);
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            color: white;
+            backdrop-filter: blur(4px);
+        }
+        
+        .video-label h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+        
+        .video-label p {
+            font-size: 0.7rem;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        .video-badge-modern {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--fl-yellow);
+            color: #000;
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Community video card - Properly sized */
+        .community-video-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            background: transparent;
+            max-width: 100%;
+        }
+        
+        .community-video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 45px rgba(0,0,0,0.18);
+        }
+        
+        .community-video-card video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+            background: #fafafa;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        
+        .community-overlay {
+            position: absolute;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path d="M20,20 Q40,10 60,20 Q80,30 80,50 Q80,70 60,80 Q40,90 20,80 Q0,70 0,50 Q0,30 20,20" fill="%232E7D32"/></svg>');
-            background-size: 200px;
-            pointer-events: none;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 1.2rem;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 24px 24px;
         }
         
-        /* Card styles */
+        .community-overlay h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+        
+        .community-overlay p {
+            font-size: 0.75rem;
+            margin-bottom: 0;
+        }
+        
+        /* Pill cards */
         .pill-card {
             background: var(--fl-white);
-            border-radius: 15px;
-            padding: 1.5rem;
+            border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(212,160,23,0.1);
-            transition: all 0.3s;
-            border-left: 4px solid var(--fl-green);
+            transition: all 0.4s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .pill-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 15px 40px rgba(212,160,23,0.2);
-            border-left-color: var(--fl-yellow);
-        }
-        
-        .feature-card-wellness { 
-            background: var(--fl-white); 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(212,160,23,0.1); 
-            transition: all 0.3s;
-            height: 100%;
-            border: 1px solid rgba(46,125,50,0.1);
-        }
-        
-        .feature-card-wellness:hover { 
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(212,160,23,0.2);
-            border-color: var(--fl-green);
         }
         
-        .faith-card {
-            background: linear-gradient(135deg, #fff9e6, var(--fl-white));
-            border: 1px solid var(--fl-gold);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(201,162,39,0.1);
+        .pill-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
         
-        .faith-card::before {
-            content: "🙏";
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            font-size: 2rem;
-            background: var(--fl-white);
-            padding: 0.5rem;
-            border-radius: 50%;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        .pill-card:hover .pill-card-img {
+            transform: scale(1.05);
         }
         
-        /* Section icons */
+        .pill-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-badge {
+            background: var(--fl-green);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .product-badge.gold {
+            background: var(--fl-gold);
+            color: #000;
+        }
+        
         .section-icon {
             width: 70px;
             height: 70px;
@@ -200,25 +281,6 @@
             margin-bottom: 1.5rem;
         }
         
-        /* Product badges */
-        .product-badge {
-            background: var(--fl-green);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .product-badge.gold {
-            background: var(--fl-gold);
-            color: #000;
-        }
-        
-        /* Tagline highlight */
         .tagline-highlight {
             background: var(--fl-yellow);
             color: #000;
@@ -226,22 +288,21 @@
             padding: 0.5rem 2rem;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
             border: 2px solid var(--fl-green);
         }
         
-        /* Shop button */
         .shop-button {
             background: var(--fl-yellow);
             color: #000;
             font-weight: bold;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             display: inline-block;
             transition: all 0.3s;
             border: 2px solid var(--fl-green);
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-decoration: none;
         }
         
@@ -249,10 +310,40 @@
             background: var(--fl-green);
             color: white;
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(46,125,50,0.3);
         }
         
-        /* Scripture highlights */
+        .gold-divider {
+            height: 3px;
+            background: var(--fl-gold);
+            width: 80px;
+            margin: 1.2rem auto;
+        }
+        
+        .faith-card {
+            background: linear-gradient(135deg, #fff9e6, var(--fl-white));
+            border: 1px solid var(--fl-gold);
+            border-radius: 20px;
+            padding: 1.8rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(201,162,39,0.1);
+            height: 100%;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--fl-white);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(201,162,39,0.2);
+            border: 2px solid var(--fl-gold);
+        }
+        
         .scripture-highlight {
             color: var(--fl-gold);
             font-style: italic;
@@ -260,28 +351,17 @@
             border-left: 3px solid var(--fl-gold);
             padding-left: 1rem;
             margin: 1rem 0;
+            background: rgba(201,162,39,0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
         }
         
-        /* Divider lines */
-        .gold-divider {
-            height: 3px;
-            background: var(--fl-gold);
-            width: 80px;
-            margin: 1.5rem 0;
-        }
-        
-        /* Footer */
         .footer-wellness { 
             background: var(--fl-yellow); 
             color: #000; 
         }
         
-        .footer-wellness a {
-            color: var(--fl-green);
-            font-weight: bold;
-        }
-        
-        /* Back to top customization */
         .back-to-top-wellness {
             background-color: var(--fl-green) !important;
             border-color: var(--fl-green) !important;
@@ -294,85 +374,56 @@
             color: #000 !important;
         }
         
-        /* Topbar customization */
         .topbar-fl {
             background-color: var(--fl-green) !important;
         }
         
-        .topbar-fl i {
-            color: var(--fl-yellow) !important;
+        .navbar-logo {
+            height: 80px;
+            width: auto;
         }
         
-        /* Campaign blush - only for specific sections */
-        .campaign-blush {
-            background-color: var(--fl-blush);
-            color: #000;
+        .video-section-bg {
+            background: linear-gradient(135deg, #fef9e6 0%, #fff5e0 100%);
+            position: relative;
         }
         
-        /* Responsive */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .wellness-header {
-                padding: 3rem 0;
+                padding: 2rem 0;
+            }
+            .pill-card-img {
+                height: 160px;
+            }
+            .cellphone-video {
+                max-width: 280px;
+            }
+            .tagline-highlight {
+                font-size: 1rem;
+                padding: 0.4rem 1.5rem;
+            }
+            .section-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            .modern-video-card video {
+                aspect-ratio: 16 / 9;
             }
         }
-        /* Faith card styles - updated */
-/* Faith card styles - completely fixed */
-.faith-card {
-    background: linear-gradient(135deg, #fff9e6, var(--fl-white));
-    border: 1px solid var(--fl-gold);
-    border-radius: 20px;
-    padding: 2rem;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(201,162,39,0.1);
-}
-
-/* Remove ALL pseudo-elements from all faith cards */
-.faith-card::before,
-.faith-card::after,
-.faith-card-prayer::before,
-.faith-card-prayer::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* Card icon styling */
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    background: var(--fl-white);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(201,162,39,0.2);
-    border: 2px solid var(--fl-gold);
-}
-
-/* Scripture highlight styling */
-.scripture-highlight {
-    color: var(--fl-gold);
-    font-style: italic;
-    font-weight: 600;
-    border-left: 3px solid var(--fl-gold);
-    padding-left: 1rem;
-    margin: 1rem 0;
-    background: rgba(201,162,39,0.05);
-    padding: 1rem;
-    border-radius: 10px;
-}
-
-/* Remove any background from h4 inside faith cards */
-.faith-card h4,
-.faith-card-prayer h4 {
-    background: transparent;
-}
-.navbar-logo {
-    height: 100px;
-    width: auto;
-}
+        
+        @media (max-width: 576px) {
+            .cellphone-video {
+                max-width: 240px;
+            }
+            .video-label h4 {
+                font-size: 0.75rem;
+            }
+            .video-label p {
+                font-size: 0.6rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -381,7 +432,7 @@
         <div class="spinner"></div>
     </div>
 
-    <!-- Topbar with wellness contact details - Green background with yellow icons -->
+    <!-- Topbar -->
     <div class="container-fluid topbar-fl px-5 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
@@ -403,20 +454,20 @@
         </div>
     </div>
 
-    <!-- Navbar - Yellow background -->
+    <!-- Navbar -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-fl">
             <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
-    <img src="img/health.png" alt="Zinnia Holdings Logo" class="navbar-logo me-2">
-    <h1 class="m-0 text-white">Zinnia Health & Wellness</h1>
-</a>
+                <img src="img/health.png" alt="Zinnia Health & Wellness Logo" class="navbar-logo me-2">
+                <h1 class="m-0" style="color: #000; font-size: 1.5rem;">Zinnia Health & Wellness</h1>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars" style="color: #000;"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="indexHealth.html" class="nav-item nav-link active">Home</a>
-                    <a href="#programs" class="nav-item nav-link ">Programs</a>
+                    <a href="#programs" class="nav-item nav-link">Programs</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zinnia Brands</a>
                         <div class="dropdown-menu m-0">
@@ -431,27 +482,73 @@
             </div>
         </nav>
 
-        <!-- Hero section - Yellow dominant (50%) -->
+        <!-- Hero section with CELLPHONE SHAPE VIDEO - WIDTH INCREASED -->
         <div class="container-fluid wellness-header">
-            <div class="container py-5">
-                <div class="row align-items-center g-5">
+            <div class="container py-4">
+                <div class="row align-items-center g-4">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="tagline-highlight">🌿 Health is Wealth</div>
-                        <h1 class="display-4 fw-bold mb-4" style="color: #000;">ZINNIA HEALTH & WELLNESS</h1>
-                        <p class="fs-4 mb-4" style="color: #000; font-weight: 500;">Nurturing Healthy Families. Empowering Whole Living.</p>
-                        <p class="lead mb-4" style="color: #000;">Premium wellness solutions, immune support, weight management, vitality for every age — powered by Forever Living partnership.</p>
+                        <h1 class="display-5 fw-bold mb-3" style="color: #000;">ZINNIA HEALTH & WELLNESS</h1>
+                        <p class="fs-5 mb-3" style="color: #000; font-weight: 500;">Nurturing Healthy Families. Empowering Whole Living.</p>
+                        <p class="mb-4" style="color: #000;">Premium wellness solutions, immune support, weight management — powered by Forever Living partnership.</p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="#shop" class="btn btn-fl-green btn-lg px-5 py-3 rounded-pill">Shop Now</a>
-                            <a href="#programs" class="btn btn-outline-dark btn-lg px-5 py-3 rounded-pill">Explore Programs</a>
+                            <a href="#shop" class="btn btn-fl-green btn-lg px-4 py-2 rounded-pill">Shop Now</a>
+                            <a href="#programs" class="btn btn-outline-dark btn-lg px-4 py-2 rounded-pill">Explore Programs</a>
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="position-relative">
-                            <img src="img/p1.jpeg" class="img-fluid rounded-5 shadow-lg" alt="wellness family" style="border: 4px solid var(--fl-green);">
-                            <div class="position-absolute bottom-0 start-0 bg-white p-3 rounded-4 shadow m-3">
-                                <i class="fa fa-check-circle" style="color: var(--fl-green);"></i>
-                                <span class="fw-bold ms-2" style="color: var(--fl-green);">Forever Living Partner</span>
-                            </div>
+                        <!-- VIDEO 1: Cellphone shape - Width increased to 360px -->
+                        <div class="cellphone-video">
+                            <video autoplay muted loop playsinline>
+                                <source src="img/v2.mp4" type="video/mp4">
+                                Your browser does not support video.
+                            </video>
+                        </div>
+                        <p class="text-center mt-3 small text-muted">✨ Experience wellness on the go ✨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO GALLERY SECTION - Modern cards, properly sized -->
+    <div class="container-fluid py-5 video-section-bg wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
+            <div class="text-center mb-4">
+                <div class="section-icon mx-auto">
+                    <i class="fa fa-play-circle"></i>
+                </div>
+                <h2 class="display-5 fw-bold mb-2" style="color: var(--fl-green);">Experience Wellness in Motion</h2>
+                <p class="lead" style="color: var(--fl-yellow); font-weight: 600;">Watch how we transform lives naturally</p>
+                <div class="gold-divider"></div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- VIDEO 2: Modern card -->
+                <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="modern-video-card">
+                        <div class="video-badge-modern"><i class="fas fa-leaf me-1"></i> Natural Living</div>
+                        <video autoplay muted loop playsinline>
+                            <source src="img/v5.mp4" type="video/mp4">
+                            Your browser does not support video.
+                        </video>
+                        <div class="video-label">
+                            <h4>🌱 Whole Body Wellness</h4>
+                            <p>Discover natural solutions for vibrant health</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- VIDEO 3: Modern card -->
+                <div class="col-md-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <div class="modern-video-card">
+                        <div class="video-badge-modern"><i class="fas fa-heart me-1"></i> Family First</div>
+                        <video autoplay muted loop playsinline>
+                            <source src="img/v3.mp4" type="video/mp4">
+                            Your browser does not support video.
+                        </video>
+                        <div class="video-label">
+                            <h4>👨‍👩‍👧‍👦 Healthy Families</h4>
+                            <p>Empowering families to thrive together</p>
                         </div>
                     </div>
                 </div>
@@ -461,414 +558,132 @@
 
     <!-- Nutritional & Supplement Solutions Section -->
     <div class="container-fluid py-5" id="shop">
-        <div class="container py-5">
-            <div class="text-center mb-5 wow fadeInUp">
+        <div class="container py-4">
+            <div class="text-center mb-4 wow fadeInUp">
                 <div class="section-icon mx-auto">
                     <i class="fa fa-flask"></i>
                 </div>
-                <h2 class="display-5 fw-bold mb-3" style="color: var(--fl-green);">1️⃣ Nutritional & Supplement Solutions</h2>
+                <h2 class="display-5 fw-bold mb-2" style="color: var(--fl-green);">1️⃣ Nutritional & Supplement Solutions</h2>
                 <p class="lead" style="color: var(--fl-yellow); font-weight: 600;">Forever Living Product Distribution — Nature's Finest</p>
-                <div class="gold-divider mx-auto"></div>
-                <a href="https://thealoeveraco.shop/qPvXzJEt" target="_blank" class="shop-button mt-4">
+                <div class="gold-divider"></div>
+                <a href="https://thealoeveraco.shop/qPvXzJEt" target="_blank" class="shop-button mt-3">
                     <i class="fa fa-shopping-cart me-2"></i>Place Your Order Here
                 </a>
             </div>
             
-            <div class="row g-4 mt-4">
+            <div class="row g-4 mt-2">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-shield-alt fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Immune Support</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Immublend</span>
-                            <span class="product-badge">Forever Arctic Sea</span>
-                            <span class="product-badge gold">Forever Bee Honey</span>
-                        </div>
-                    </div>
+                    <div class="pill-card"><img src="img/p1.jpeg" class="pill-card-img" alt="Immune Support"><div class="pill-card-content"><div class="d-flex align-items-center mb-3"><i class="fa fa-shield-alt fa-2x me-3" style="color: var(--fl-yellow);"></i><h4 class="mb-0">Immune Support</h4></div><div><span class="product-badge">Forever Immublend</span><span class="product-badge">Forever Arctic Sea</span><span class="product-badge gold">Forever Bee Honey</span></div></div></div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-weight fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Weight Management</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Lean</span>
-                            <span class="product-badge">Forever Garcinia Plus</span>
-                            <span class="product-badge gold">Forever Lite Ultra</span>
-                        </div>
-                    </div>
+                    <div class="pill-card"><img src="img/p20.jpeg" class="pill-card-img" alt="Weight Management"><div class="pill-card-content"><div class="d-flex align-items-center mb-3"><i class="fa fa-weight fa-2x me-3" style="color: var(--fl-yellow);"></i><h4 class="mb-0">Weight Management</h4></div><div><span class="product-badge">Forever Lean</span><span class="product-badge">Forever Garcinia Plus</span><span class="product-badge gold">Forever Lite Ultra</span></div></div></div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-heartbeat fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Diabetes Support</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Fiber</span>
-                            <span class="product-badge">Forever Pomesteen</span>
-                            <span class="product-badge gold">Forever Clean 9</span>
-                        </div>
-                    </div>
+                    <div class="pill-card"><img src="img/p21.jpeg" class="pill-card-img" alt="Diabetes Support"><div class="pill-card-content"><div class="d-flex align-items-center mb-3"><i class="fa fa-heartbeat fa-2x me-3" style="color: var(--fl-yellow);"></i><h4 class="mb-0">Diabetes Support</h4></div><div><span class="product-badge">Forever Fiber</span><span class="product-badge">Forever Pomesteen</span><span class="product-badge gold">Forever Clean 9</span></div></div></div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-bone fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Arthritis & Joint Care</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Freedom</span>
-                            <span class="product-badge">Forever Absorbent-C</span>
-                            <span class="product-badge gold">Forever Active Pro-B</span>
-                        </div>
-                    </div>
+                    <div class="pill-card"><img src="img/p23.jpeg" class="pill-card-img" alt="Arthritis & Joint Care"><div class="pill-card-content"><div class="d-flex align-items-center mb-3"><i class="fa fa-bone fa-2x me-3" style="color: var(--fl-yellow);"></i><h4 class="mb-0">Arthritis & Joint Care</h4></div><div><span class="product-badge">Forever Freedom</span><span class="product-badge">Forever Absorbent-C</span><span class="product-badge gold">Forever Active Pro-B</span></div></div></div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-brain fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Brain & Memory Support</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Ginkgo Plus</span>
-                            <span class="product-badge">Forever Omega-3</span>
-                            <span class="product-badge gold">Forever Bee Pollen</span>
-                        </div>
-                    </div>
+                    <div class="pill-card"><img src="img/p29.jpeg" class="pill-card-img" alt="Brain & Memory Support"><div class="pill-card-content"><div class="d-flex align-items-center mb-3"><i class="fa fa-brain fa-2x me-3" style="color: var(--fl-yellow);"></i><h4 class="mb-0">Brain & Memory Support</h4></div><div><span class="product-badge">Forever Ginkgo Plus</span><span class="product-badge">Forever Omega-3</span><span class="product-badge gold">Forever Bee Pollen</span></div></div></div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-eye fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Vision Support</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Vision</span>
-                            <span class="product-badge">Forever Lycium Plus</span>
-                            <span class="product-badge gold">Forever Kids</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-male fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Men's Health & Vitality</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Men</span>
-                            <span class="product-badge">Forever Saw Palmetto</span>
-                            <span class="product-badge gold">Forever Supergreens</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-female fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Women's Wellness</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Women</span>
-                            <span class="product-badge">Forever Collagen</span>
-                            <span class="product-badge gold">Forever Aloe Vera Gel</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
-                    <div class="pill-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-child fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                            <h4 class="mb-0" style="color: var(--fl-green);">Children's Immunity</h4>
-                        </div>
-                        <div>
-                            <span class="product-badge">Forever Kids</span>
-                            <span class="product-badge">Forever Bee Honey</span>
-                            <span class="product-badge gold">Aloe Berry Nectar</span>
-                        </div>
-                    </div>
+                    <div class="pill-card"><img src="img/p11.jpeg" class="pill-card-img" alt="Vision Support"><div class="pill-card-content"><div class="d-flex align-items-center mb-3"><i class="fa fa-eye fa-2x me-3" style="color: var(--fl-yellow);"></i><h4 class="mb-0">Vision Support</h4></div><div><span class="product-badge">Forever Vision</span><span class="product-badge">Forever Lycium Plus</span><span class="product-badge gold">Forever Kids</span></div></div></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Wellness Education Section - Green background section -->
+    <!-- Wellness Education Section -->
     <div class="container-fluid py-5" style="background-color: var(--fl-green);" id="programs">
-        <div class="container py-5">
-            <div class="row align-items-center g-5">
+        <div class="container py-4">
+            <div class="row align-items-center g-4">
                 <div class="col-lg-6 wow fadeInLeft">
-                    <div class="section-icon" style="background-color: var(--fl-yellow);">
-                        <i class="fa fa-graduation-cap"></i>
-                    </div>
-                    <h2 class="display-5 fw-bold mb-4 text-white">2️⃣ Wellness Education</h2>
-                    <p class="lead mb-4 text-white">Knowledge is the first step to lasting health</p>
-                    
-                    <div class="d-flex mb-4">
-                        <i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                        <div>
-                            <h4 class="text-white">Nutrition Guidance Plans</h4>
-                            <p class="text-white-50">Personalized nutrition strategies for optimal health</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex mb-4">
-                        <i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                        <div>
-                            <h4 class="text-white">7-Day & 30-Day Wellness Programs</h4>
-                            <p class="text-white-50">Structured programs for sustainable transformation</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex mb-4">
-                        <i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                        <div>
-                            <h4 class="text-white">Printable Meal Plans</h4>
-                            <p class="text-white-50">Easy-to-follow meal guides for busy families</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex mb-4">
-                        <i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                        <div>
-                            <h4 class="text-white">Lifestyle Reset Plans</h4>
-                            <p class="text-white-50">Holistic approaches to renewed vitality</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex">
-                        <i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i>
-                        <div>
-                            <h4 class="text-white">Corporate Wellness Talks</h4>
-                            <p class="text-white-50">Bring wellness to your workplace</p>
-                        </div>
-                    </div>
+                    <div class="section-icon" style="background-color: var(--fl-yellow);"><i class="fa fa-graduation-cap"></i></div>
+                    <h2 class="display-5 fw-bold mb-3 text-white">2️⃣ Wellness Education</h2>
+                    <p class="lead mb-3 text-white">Knowledge is the first step to lasting health</p>
+                    <div class="d-flex mb-3"><i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i><div><h4 class="text-white">Nutrition Guidance Plans</h4><p class="text-white-50">Personalized nutrition strategies</p></div></div>
+                    <div class="d-flex mb-3"><i class="fa fa-check-circle fa-2x me-3" style="color: var(--fl-yellow);"></i><div><h4 class="text-white">7-Day & 30-Day Wellness Programs</h4><p class="text-white-50">Sustainable transformation programs</p></div></div>
                 </div>
-                
                 <div class="col-lg-6 wow fadeInRight">
-                    <div class="bg-white p-5 rounded-5 shadow">
-                        <h3 class="mb-4" style="color: var(--fl-green);">Download Free Sample</h3>
-                        <p style="color: var(--fl-yellow); font-weight: 600;">Get our 7-Day Wellness Starter Guide</p>
-                        <form>
-                            <input type="text" class="form-control form-control-lg mb-3" placeholder="Your Name">
-                            <input type="email" class="form-control form-control-lg mb-3" placeholder="Your Email">
-                            <button class="btn btn-fl-yellow w-100 py-3">Send Me Free Guide</button>
-                        </form>
+                    <div class="bg-white p-4 rounded-5 shadow"><h3 class="mb-3" style="color: var(--fl-green);">Download Free Sample</h3><p style="color: var(--fl-yellow); font-weight: 600;">Get our 7-Day Wellness Starter Guide</p><form><input type="text" class="form-control form-control-lg mb-3" placeholder="Your Name"><input type="email" class="form-control form-control-lg mb-3" placeholder="Your Email"><button class="btn btn-fl-yellow w-100 py-2">Send Me Free Guide</button></form></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO 4: Community Video -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
+            <div class="text-center mb-4">
+                <div class="section-icon mx-auto"><i class="fa fa-users"></i></div>
+                <h2 class="display-5 fw-bold mb-2" style="color: var(--fl-green);">Our Wellness Community</h2>
+                <p class="lead" style="color: var(--fl-yellow);">Real stories. Real transformation.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="community-video-card">
+                        <div class="video-badge-modern" style="top: 15px; left: 15px; right: auto;"><i class="fas fa-star me-1"></i> Community Stories</div>
+                        <video autoplay muted loop playsinline>
+                            <source src="img/v1.mp4" type="video/mp4">
+                            Your browser does not support video.
+                        </video>
+                        <div class="community-overlay">
+                            <h4>🌟 Join Our Thriving Wellness Community</h4>
+                            <p>Hundreds of families have transformed their health with Zinnia Wellness</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Faith-Based Wellness Section - Gold accents -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="text-center mb-5 wow fadeInUp">
-            <div class="section-icon mx-auto">
-                <i class="fa fa-pray"></i>
-            </div>
-            <h2 class="display-5 fw-bold mb-3" style="color: var(--fl-green);">3️⃣ Faith-Based Wellness</h2>
-            <p class="lead" style="color: var(--fl-yellow);">Honoring God in our pursuit of health</p>
-            <div class="gold-divider mx-auto"></div>
-        </div>
-        
-        <div class="row g-4">
-            <!-- Scripture Card -->
-            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="faith-card h-100">
-                    <div class="card-icon">📖</div>
-                    <h4 class="mb-3" style="color: var(--fl-gold);">Scripture-Based Health Declarations</h4>
-                    <p>Daily declarations aligning God's promises with physical wellness.</p>
-                    <div class="scripture-highlight">"Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers." (3 John 1:2)</div>
-                </div>
-            </div>
-            
-            <!-- Devotional Guides Card -->
-            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="faith-card h-100">
-                    <div class="card-icon">💝</div>
-                    <h4 class="mb-3" style="color: var(--fl-gold);">Devotional Guides for Single Mothers</h4>
-                    <p>Specially crafted devotionals offering hope, strength, and practical wellness guidance for single mothers navigating health and family.</p>
-                </div>
-            </div>
-            
-            <!-- Healing Journals Card -->
-            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="faith-card h-100">
-                    <div class="card-icon">📓</div>
-                    <h4 class="mb-3" style="color: var(--fl-gold);">Healing Journals</h4>
-                    <p>Guided journals combining scripture, health tracking, and reflective prompts for your healing journey.</p>
-                </div>
-            </div>
-            
-            <!-- Prayer Campaigns Card -->
-            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="faith-card h-100">
-                    <div class="card-icon">🙌</div>
-                    <h4 class="mb-3" style="color: var(--fl-gold);">Prayer & Prosperity Wellness Campaigns</h4>
-                    <p>Seasonal campaigns uniting prayer, wellness education, and community support for holistic prosperity.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <!-- Sales & Team Development Section - Yellow with green accents -->
-    <div class="container-fluid py-5" style="background-color: var(--fl-yellow);">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 wow fadeInLeft">
-                    <div class="section-icon" style="background-color: var(--fl-green); color: white;">
-                        <i class="fa fa-users"></i>
-                    </div>
-                    <h2 class="display-5 fw-bold mb-4" style="color: #000;">4️⃣ Sales & Team Development</h2>
-                    <p class="lead mb-4" style="color: #000; font-weight: 600;">Build your wellness business with purpose</p>
-                    
-                    <ul class="list-unstyled">
-                        <li class="mb-4 d-flex">
-                            <i class="fa fa-star" style="color: var(--fl-green); font-size: 2rem; margin-right: 1rem;"></i>
-                            <div>
-                                <h4 style="color: #000;">#Team Training</h4>
-                                <p style="color: #000;">Comprehensive training programs for wellness entrepreneurs</p>
-                            </div>
-                        </li>
-                        <li class="mb-4 d-flex">
-                            <i class="fa fa-bullhorn" style="color: var(--fl-green); font-size: 2rem; margin-right: 1rem;"></i>
-                            <div>
-                                <h4 style="color: #000;">#Product Awareness Campaigns</h4>
-                                <p style="color: #000;">Strategic campaigns to educate and engage communities</p>
-                            </div>
-                        </li>
-                        <li class="mb-4 d-flex">
-                            <i class="fa fa-store" style="color: var(--fl-green); font-size: 2rem; margin-right: 1rem;"></i>
-                            <div>
-                                <h4 style="color: #000;">#Market Activation Events</h4>
-                                <p style="color: #000;">Farmers markets, wellness expos, and community activations</p>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn btn-fl-green btn-lg px-5 py-3 rounded-pill mt-3">Join Our Team</a>
-                </div>
-                
-                <div class="col-lg-6 wow fadeInRight">
-                    <img src="img/olas2.jpeg" class="img-fluid rounded-5 shadow" alt="team training" style="border: 4px solid var(--fl-green);">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonials Section - Gold divider emphasis -->
+    <!-- Faith-Based Wellness Section -->
     <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <div class="faith-card">
-                        <i class="fa fa-quote-left fa-3x mb-3" style="color: var(--fl-gold);"></i>
-                        <h3 class="mb-4" style="color: var(--fl-green);">"Zinnia Wellness changed our family's health journey. The combination of premium products and faith-based guidance made all the difference."</h3>
-                        <div class="gold-divider mx-auto"></div>
-                        <p class="fw-bold mb-1" style="color: var(--fl-gold);">— The Mbatha family</p>
-                        <p class="text-muted">Durban, South Africa</p>
-                    </div>
-                </div>
+        <div class="container py-4">
+            <div class="text-center mb-4 wow fadeInUp">
+                <div class="section-icon mx-auto"><i class="fa fa-pray"></i></div>
+                <h2 class="display-5 fw-bold mb-2" style="color: var(--fl-green);">3️⃣ Faith-Based Wellness</h2>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 wow fadeInUp"><div class="faith-card h-100"><div class="card-icon">📖</div><h4 class="mb-2" style="color: var(--fl-gold);">Scripture-Based Health Declarations</h4><div class="scripture-highlight">"Beloved, I pray that you may prosper in all things and be in health..." (3 John 1:2)</div></div></div>
+                <div class="col-md-6 wow fadeInUp"><div class="faith-card h-100"><div class="card-icon">💝</div><h4 class="mb-2" style="color: var(--fl-gold);">Devotional Guides for Single Mothers</h4><p>Hope, strength, and practical wellness guidance</p></div></div>
             </div>
         </div>
     </div>
 
-    <!-- Contact Section - White with green accents -->
+    <!-- Sales & Team Development Section -->
+    <div class="container-fluid py-5" style="background-color: var(--fl-yellow);">
+        <div class="container py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6 wow fadeInLeft"><div class="section-icon" style="background-color: var(--fl-green); color: white;"><i class="fa fa-users"></i></div><h2 class="display-5 fw-bold mb-3" style="color: #000;">4️⃣ Sales & Team Development</h2><p class="lead mb-3" style="color: #000; font-weight: 600;">Build your wellness business with purpose</p><a href="#contact" class="btn btn-fl-green btn-lg px-4 py-2 rounded-pill">Join Our Team</a></div>
+                <div class="col-lg-6 wow fadeInRight"><img src="img/olas2.jpeg" class="img-fluid rounded-4 shadow" alt="team training" style="border: 3px solid var(--fl-green);"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="container-fluid py-5">
+        <div class="container py-4"><div class="row"><div class="col-lg-8 mx-auto text-center"><div class="faith-card"><i class="fa fa-quote-left fa-2x mb-2" style="color: var(--fl-gold);"></i><h3 class="mb-2 fs-4" style="color: var(--fl-green);">"Zinnia Wellness changed our family's health journey."</h3><div class="gold-divider"></div><p class="fw-bold mb-0" style="color: var(--fl-gold);">— The Mbatha family</p></div></div></div></div>
+    </div>
+
+    <!-- Contact Section -->
     <div class="container-fluid py-5" style="background-color: #f8f9fa;" id="contact">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp">
-                    <h2 class="display-6 fw-bold mb-4" style="color: var(--fl-green);">Start Your Wellness Journey</h2>
-                    <p class="lead mb-4" style="color: var(--fl-yellow); font-weight: 600;">Connect with us today for personalized guidance</p>
-                    
-                    <div class="d-flex mb-4">
-                        <i class="fa fa-phone-alt" style="color: var(--fl-yellow); font-size: 2rem; margin-right: 1rem;"></i>
-                        <div>
-                            <h5 style="color: var(--fl-green);">Call or WhatsApp</h5>
-                            <p class="fs-4 fw-bold">+27 72 143 5716</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex mb-4">
-                        <i class="fa fa-envelope" style="color: var(--fl-yellow); font-size: 2rem; margin-right: 1rem;"></i>
-                        <div>
-                            <h5 style="color: var(--fl-green);">Email Us</h5>
-                            <p class="fs-5">zinniajohnson1@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex">
-                        <i class="fa fa-map-marker-alt" style="color: var(--fl-yellow); font-size: 2rem; margin-right: 1rem;"></i>
-                        <div>
-                            <h5 style="color: var(--fl-green);">Visit Our Hub</h5>
-                            <p>Wellness Hub, Fourways, Johannesburg</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 wow fadeInUp">
-                    <div class="bg-white p-5 rounded-5 shadow">
-                        <h3 class="mb-4" style="color: var(--fl-green);">Send Us a Message</h3>
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Name">
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control form-control-lg" placeholder="Your Email">
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-select form-select-lg">
-                                    <option>Select Interest</option>
-                                    <option>Product Order</option>
-                                    <option>Wellness Programs</option>
-                                    <option>Join Team</option>
-                                    <option>General Inquiry</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-                            </div>
-                            <button class="btn btn-fl-green w-100 py-3">Send Message</button>
-                        </form>
-                    </div>
-                </div>
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-lg-6 wow fadeInUp"><h2 class="display-5 fw-bold mb-3" style="color: var(--fl-green);">Start Your Wellness Journey</h2><div class="d-flex mb-3"><i class="fa fa-phone-alt" style="color: var(--fl-yellow); font-size: 1.8rem; margin-right: 1rem;"></i><div><h5 style="color: var(--fl-green);">Call or WhatsApp</h5><p class="fs-4 fw-bold">+27 72 143 5716</p></div></div><div class="d-flex mb-3"><i class="fa fa-envelope" style="color: var(--fl-yellow); font-size: 1.8rem; margin-right: 1rem;"></i><div><h5 style="color: var(--fl-green);">Email Us</h5><p class="fs-5">zinniajohnson1@gmail.com</p></div></div></div>
+                <div class="col-lg-6 wow fadeInUp"><div class="bg-white p-4 rounded-4 shadow"><h3 class="mb-3" style="color: var(--fl-green);">Send Us a Message</h3><form><input type="text" class="form-control mb-3" placeholder="Your Name"><input type="email" class="form-control mb-3" placeholder="Your Email"><textarea class="form-control" rows="3" placeholder="Your Message"></textarea><button class="btn btn-fl-green w-100 py-2 mt-3">Send Message</button></form></div></div>
             </div>
         </div>
     </div>
 
-    <!-- Optional Blush Section for Women's Campaigns (example) -->
-    <!-- This can be activated for specific promotions -->
-    <!--
-    <div class="container-fluid campaign-blush py-5">
-        <div class="container text-center">
-            <h2 style="color: #000;">✨ Glow Campaign ✨</h2>
-            <p>Special collagen promotions for radiant health</p>
-        </div>
-    </div>
-    -->
-
-    <!-- Footer - Yellow background -->
-    <div class="container-fluid footer-wellness mt-5 py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <h4><i class="fa fa-leaf me-2" style="color: var(--fl-green);"></i>Zinnia Health & Wellness</h4>
-                    <p class="mb-0">🌿 Health is Wealth • Nurturing Healthy Families</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">© 2025 Zinnia Health & Wellness – a Zinnia Holdings brand.</p>
-                    <p class="mb-0">Forever Living Independent Distributor</p>
-                </div>
-            </div>
-        </div>
+    <!-- Footer -->
+    <div class="container-fluid footer-wellness py-4">
+        <div class="container"><div class="row"><div class="col-md-6 text-center text-md-start"><h4><i class="fa fa-leaf me-2" style="color: var(--fl-green);"></i>Zinnia Health & Wellness</h4><p class="mb-0 small">🌿 Health is Wealth • Nurturing Healthy Families</p></div><div class="col-md-6 text-center text-md-end"><p class="mb-0 small">© 2025 Zinnia Health & Wellness – a Zinnia Holdings brand.</p></div></div></div>
     </div>
 
-    <!-- Back to Top - Green button -->
+    <!-- Back to Top -->
     <a href="#" class="btn btn-lg back-to-top-wellness btn-lg-square rounded"><i class="bi bi-arrow-up"></i></a>
 
     <!-- Scripts -->
