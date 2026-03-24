@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Services - Zinnia Destination</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Zinnia Destination, services, travel services, KwaZulu-Natal tours" name="keywords">
+    <meta content="Discover the range of travel services offered by Zinnia Destination Management - from corporate retreats to cultural tours." name="description">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root { 
+            --dest-forest: #1F4D3A;
+            --dest-teal: #1F7A7A;
+            --dest-sunset: #F37021;
+            --dest-mustard: #F4B223;
+            --dest-sand: #F5F1E8;
+        }
+        body {
+            background-color: var(--dest-sand);
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+        }
+        .bg-forest { background: var(--dest-forest); }
+        .bg-teal { background: var(--dest-teal); }
+        .bg-sunset { background: var(--dest-sunset); }
+        .text-forest { color: var(--dest-forest); }
+        .text-teal { color: var(--dest-teal); }
+        .btn-forest { background: var(--dest-forest); color: #fff; border: none; }
+        .navbar-dest { background: var(--dest-forest) !important; }
+        .navbar-logo { height: 100px; width: auto; }
+        
+        .services-hero {
+            position: relative;
+            padding: 120px 0;
+            background-image: url('img/d45.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(31,77,58,0.85), rgba(31,122,122,0.8));
+            z-index: 1;
+        }
+        .services-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .service-horizontal-card {
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(31,77,58,0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        .service-horizontal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px rgba(31,77,58,0.2);
+        }
+        .service-image-side {
+            flex: 0 0 45%;
+            overflow: hidden;
+        }
+        .service-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .service-horizontal-card:hover .service-image-side img {
+            transform: scale(1.1);
+        }
+        .service-info-side {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .service-icon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(31,122,122,0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+        .service-info-side h4 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--dest-forest);
+            margin-bottom: 0.8rem;
+        }
+        .service-link {
+            color: var(--dest-sunset);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+            transition: gap 0.3s ease;
+        }
+        .service-link:hover { gap: 12px; color: var(--dest-forest); }
+        .footer-dest { background: var(--dest-forest); color: #ddd; }
+        
+        @media (max-width: 992px) {
+            .service-horizontal-card { flex-direction: column; }
+            .service-image-side { flex: 0 0 220px; }
+            .service-image-side img { height: 220px; }
+            .services-hero { padding: 80px 0; }
+        }
+        @media (max-width: 768px) {
+            .services-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"><div class="spinner"></div></div>
+
+    <!-- Topbar -->
+    <div class="container-fluid bg-forest px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2" style="color:var(--dest-mustard);"></i>Departure: Umhlanga / Durban</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2" style="color:var(--dest-sunset);"></i>072 143 5716</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2" style="color:var(--dest-mustard);"></i>travel@zinnia.co.za</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-dest">
+            <a href="indexDestination.html" class="navbar-brand p-0 d-flex align-items-center">
+                <img src="img/destination.png" alt="Zinnia Holdings Logo" class="navbar-logo me-2">
+                <h1 class="m-0 text-white">Zinnia Destination</h1>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="fa fa-bars"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="indexDestination.html" class="nav-item nav-link">Home</a>
+                    <a href="about-destination.html" class="nav-item nav-link">About</a>
+                    <a href="services-destination.html" class="nav-item nav-link active">Services</a>
+                    <a href="tours-destination.html" class="nav-item nav-link">Tours</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zinnia Brands</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="index.html" class="dropdown-item">Holdings</a>
+                            <a href="indexBranding.html" class="dropdown-item">Branding</a>
+                            <a href="indexHealth.html" class="dropdown-item">Wellness</a>
+                        </div>
+                    </div>
+                    <a href="contact-destination.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="contact-destination.html" class="btn btn-sunset py-2 px-4 ms-3" style="background:var(--dest-sunset); color:white;">Plan your journey</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section with Background Image -->
+        <div class="services-hero text-white text-center">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-4">Our Services</h1>
+                <p class="fs-3">Tailored experiences for every traveler</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services content (same as before) -->
+    <div class="container-fluid py-5" style="background: var(--dest-sand);">
+        <div class="container py-5">
+            <div class="row g-4">
+                <!-- Service cards remain the same -->
+                <div class="col-md-6">
+                    <div class="service-horizontal-card">
+                        <div class="service-image-side"><img src="img/d40.jpeg" alt="Corporate retreats"></div>
+                        <div class="service-info-side">
+                            <div class="service-icon-badge"><i class="fas fa-briefcase"></i><span>Business & Team</span></div>
+                            <h4>Corporate retreats</h4>
+                            <p>Tailored programs for teams to reconnect, strategize, and recharge in inspiring settings across KwaZulu-Natal's most beautiful locations.</p>
+                            <a href="contact-destination.html" class="service-link">Inquire now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-horizontal-card">
+                        <div class="service-image-side"><img src="img/d45.jpeg" alt="Destination weddings"></div>
+                        <div class="service-info-side">
+                            <div class="service-icon-badge"><i class="fas fa-heart"></i><span>Weddings & Events</span></div>
+                            <h4>Destination weddings</h4>
+                            <p>Full coordination, stunning venues, and seamless guest experience for your perfect day in paradise.</p>
+                            <a href="contact-destination.html" class="service-link">Inquire now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-horizontal-card">
+                        <div class="service-image-side"><img src="img/img1.jfif" alt="Luxury safaris"></div>
+                        <div class="service-info-side">
+                            <div class="service-icon-badge"><i class="fas fa-paw"></i><span>Wildlife & Adventure</span></div>
+                            <h4>Luxury safaris</h4>
+                            <p>Private guided journeys across Southern Africa's most beautiful reserves.</p>
+                            <a href="contact-destination.html" class="service-link">Inquire now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-horizontal-card">
+                        <div class="service-image-side"><img src="img/download.jfif" alt="Cultural city tours"></div>
+                        <div class="service-info-side">
+                            <div class="service-icon-badge"><i class="fas fa-city"></i><span>Culture & Heritage</span></div>
+                            <h4>Cultural city tours</h4>
+                            <p>Immersive half-day and full-day experiences like our signature Durban tour.</p>
+                            <a href="tours-destination.html" class="service-link">View tours <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-horizontal-card">
+                        <div class="service-image-side"><img src="img/d32.jpeg" alt="Coastal getaways"></div>
+                        <div class="service-info-side">
+                            <div class="service-icon-badge"><i class="fas fa-umbrella-beach"></i><span>Beach & Relaxation</span></div>
+                            <h4>Coastal getaways</h4>
+                            <p>Curated escapes along the Golden Mile and beyond.</p>
+                            <a href="contact-destination.html" class="service-link">Plan your escape <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-horizontal-card">
+                        <div class="service-image-side"><img src="img/p21.jpeg" alt="Group travel coordination"></div>
+                        <div class="service-info-side">
+                            <div class="service-icon-badge"><i class="fas fa-users"></i><span>Groups & Families</span></div>
+                            <h4>Group travel coordination</h4>
+                            <p>Seamless logistics for families, friends, and corporate groups.</p>
+                            <a href="contact-destination.html" class="service-link">Inquire now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="container-fluid py-5" style="background: linear-gradient(135deg, var(--dest-forest), var(--dest-teal));">
+        <div class="container text-center py-5">
+            <h2 class="display-4 text-white fw-bold mb-4">Ready to Experience KZN?</h2>
+            <p class="fs-3 text-white mb-5">Let us create your perfect itinerary</p>
+            <a href="contact-destination.html" class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold" style="color: var(--dest-forest);">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid footer-dest text-light py-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-5">© 2025 Zinnia Destination Management – a Zinnia Holdings brand. All rights reserved. 🌊🌿🌺</p>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-sunset btn-lg-square rounded-circle back-to-top" style="background:var(--dest-sunset); color:white;"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

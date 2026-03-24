@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tours - Zinnia Destination</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Zinnia Destination, tours, Drakensberg tours, Durban tours, KwaZulu-Natal" name="keywords">
+    <meta content="Explore our curated tours including Drakensberg adventures, Durban cultural experiences, and Inanda Township heritage tours." name="description">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root { 
+            --dest-forest: #1F4D3A;
+            --dest-teal: #1F7A7A;
+            --dest-sunset: #F37021;
+            --dest-mustard: #F4B223;
+            --dest-sand: #F5F1E8;
+        }
+        body {
+            background-color: var(--dest-sand);
+            font-family: 'Nunito', sans-serif;
+        }
+        .bg-forest { background: var(--dest-forest); }
+        .bg-teal { background: var(--dest-teal); }
+        .bg-sunset { background: var(--dest-sunset); }
+        .text-forest { color: var(--dest-forest); }
+        .text-teal { color: var(--dest-teal); }
+        .btn-forest { background: var(--dest-forest); color: #fff; }
+        .navbar-dest { background: var(--dest-forest) !important; }
+        .navbar-logo { height: 100px; width: auto; }
+        
+        /* Hero Section with Background Image */
+        .tours-hero {
+            position: relative;
+            padding: 120px 0;
+            background-image: url('img/d38.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        .tours-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(31,77,58,0.85), rgba(31,122,122,0.8));
+            z-index: 1;
+        }
+        .tours-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .tour-card {
+            background: white;
+            border-radius: 40px 40px 40px 0;
+            padding: 2rem;
+            box-shadow: 0 20px 30px rgba(31,77,58,0.08);
+            height: 100%;
+            border-left: 8px solid var(--dest-sunset);
+            transition: 0.3s;
+        }
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px rgba(31,77,58,0.2);
+        }
+        .badge-route {
+            background: var(--dest-mustard);
+            color: var(--dest-forest);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .inanda-card {
+            background: linear-gradient(145deg, white, var(--dest-sand));
+            border-radius: 60px 60px 60px 0;
+            padding: 2.5rem;
+            border-left: 10px solid var(--dest-teal);
+            margin-bottom: 2rem;
+        }
+        .itinerary-card-modern {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(31,77,58,0.12);
+            transition: all 0.4s ease;
+            margin-bottom: 1.5rem;
+        }
+        .itinerary-card-modern:hover {
+            transform: translateY(-8px);
+        }
+        .itinerary-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        .itinerary-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .itinerary-card-modern:hover .itinerary-image img {
+            transform: scale(1.08);
+        }
+        .itinerary-content {
+            padding: 1.8rem;
+            display: flex;
+            gap: 1.2rem;
+        }
+        .itinerary-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: rgba(31,122,122,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        .itinerary-card-modern:hover .itinerary-icon {
+            background: var(--dest-sunset);
+            transform: rotate(360deg);
+        }
+        .itinerary-card-modern:hover .itinerary-icon i {
+            color: white !important;
+        }
+        .footer-dest { background: var(--dest-forest); color: #ddd; }
+        
+        /* Carousel styles */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .carousel:hover .carousel-control-prev,
+        .carousel:hover .carousel-control-next {
+            opacity: 1;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 40px;
+            height: 40px;
+            background-size: 60%;
+            background-color: var(--dest-forest);
+            border-radius: 50%;
+            padding: 10px;
+        }
+        .carousel-indicators {
+            position: relative;
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--dest-forest);
+            opacity: 0.4;
+            margin: 0 6px;
+        }
+        .carousel-indicators button.active {
+            opacity: 1;
+            background-color: var(--dest-sunset);
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .tours-hero {
+                padding: 80px 0;
+            }
+            .tours-hero h1 {
+                font-size: 2.5rem;
+            }
+            .itinerary-content { flex-direction: column; text-align: center; }
+            .itinerary-icon { margin: 0 auto; }
+            .itinerary-image { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"><div class="spinner"></div></div>
+
+    <!-- Topbar -->
+    <div class="container-fluid bg-forest px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2" style="color:var(--dest-mustard);"></i>Departure: Umhlanga / Durban</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2" style="color:var(--dest-sunset);"></i>072 143 5716</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2" style="color:var(--dest-mustard);"></i>travel@zinnia.co.za</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height:45px">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 navbar-dest">
+            <a href="indexDestination.html" class="navbar-brand p-0 d-flex align-items-center">
+                <img src="img/destination.png" alt="Zinnia Holdings Logo" class="navbar-logo me-2">
+                <h1 class="m-0 text-white">Zinnia Destination</h1>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="fa fa-bars"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="indexDestination.html" class="nav-item nav-link">Home</a>
+                    <a href="about-destination.html" class="nav-item nav-link">About</a>
+                    <a href="services-destination.html" class="nav-item nav-link">Services</a>
+                    <a href="tours-destination.html" class="nav-item nav-link active">Tours</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zinnia Brands</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="index.html" class="dropdown-item">Holdings</a>
+                            <a href="indexBranding.html" class="dropdown-item">Branding</a>
+                            <a href="indexHealth.html" class="dropdown-item">Wellness</a>
+                        </div>
+                    </div>
+                    <a href="contact-destination.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="contact-destination.html" class="btn btn-sunset py-2 px-4 ms-3" style="background:var(--dest-sunset); color:white;">Book now</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section with Background Image -->
+        <div class="tours-hero text-white text-center">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-4">Our Tours</h1>
+                <p class="fs-3">Discover the beauty of KwaZulu-Natal</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drakensberg Tours Section -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">🗺️ Drakensberg Mountain Tours</h2>
+                <p class="fs-4" style="color:var(--dest-teal);">Experience the majesty of the Ukhahlamba Drakensberg</p>
+                <div style="width:150px; height:4px; background:var(--dest-sunset); margin:1rem auto; border-radius:2px;"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Southern Drakensberg • 2-3 days</span>
+                        <h4>📍 Underberg / Himerville - Adventure & Culture</h4>
+                        <ul>
+                            <li>Sani Pass 4x4 tour into Lesotho</li>
+                            <li>Visit Basotho villages</li>
+                            <li>Sani Pass Brewery Tour</li>
+                        </ul>
+                        <a href="contact-destination.html" class="btn btn-outline-sunset mt-3" style="color:var(--dest-sunset); border:2px solid var(--dest-sunset); border-radius:40px; padding:8px 24px; text-decoration:none; display:inline-block;">Enquire Now →</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Central Drakensberg • 2-3 days</span>
+                        <h4>📍 Champagne Valley / Cathedral Peak - Nature & Leisure</h4>
+                        <ul>
+                            <li>Scenic walks and short hikes</li>
+                            <li>Zipline or horse riding adventures</li>
+                            <li>Champagne Valley viewpoints</li>
+                        </ul>
+                        <a href="contact-destination.html" class="btn btn-outline-sunset mt-3" style="color:var(--dest-sunset); border:2px solid var(--dest-sunset); border-radius:40px; padding:8px 24px; text-decoration:none; display:inline-block;">Enquire Now →</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Northern Drakensberg • 2-3 days</span>
+                        <h4>📍 Amphitheatre / Royal Natal Park - Hiking & Iconic Views</h4>
+                        <ul>
+                            <li>Tugela Gorge Trails</li>
+                            <li>Amphitheatre hike</li>
+                            <li>Royal Natal National Park viewpoints</li>
+                        </ul>
+                        <a href="contact-destination.html" class="btn btn-outline-sunset mt-3" style="color:var(--dest-sunset); border:2px solid var(--dest-sunset); border-radius:40px; padding:8px 24px; text-decoration:none; display:inline-block;">Enquire Now →</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tour-card">
+                        <span class="badge-route">Full Drakensberg Loop • 5-7 days</span>
+                        <h4>📍 Comprehensive Tour - All Highlights</h4>
+                        <ul>
+                            <li>Sani Pass 4x4 adventure</li>
+                            <li>Champagne Valley scenic walks</li>
+                            <li>Tugela Gorge and Amphitheatre hikes</li>
+                        </ul>
+                        <a href="contact-destination.html" class="btn btn-outline-sunset mt-3" style="color:var(--dest-sunset); border:2px solid var(--dest-sunset); border-radius:40px; padding:8px 24px; text-decoration:none; display:inline-block;">Enquire Now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Durban Cultural Half-Day Tour Section -->
+    <div class="container-fluid py-5 bg-light" id="durban-tour">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color:var(--dest-forest);">🌸 Durban Cultural Half-Day Tour</h2>
+                <p class="fs-4" style="color:var(--dest-teal);">A journey through the city's rich tapestry</p>
+                <div style="width:150px; height:4px; background:var(--dest-sunset); margin:1rem auto; border-radius:2px;"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div id="itineraryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                        <div class="carousel-indicators mb-3 position-relative">
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="4"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="5"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="6"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="7"></button>
+                            <button type="button" data-bs-target="#itineraryCarousel" data-bs-slide-to="8"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- Slide 1: Departure -->
+                            <div class="carousel-item active">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d34.jpeg" alt="Umhlanga Coastline">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-map-pin" style="color:var(--dest-sunset);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Depart from Umhlanga / Durban Hotel</h4>
+                                            <p class="fs-5">Enjoy a scenic drive along the coastline into the vibrant heart of Durban City.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 2: Natural Science Museum -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d36.jpeg" alt="Natural Science Museum">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-dinosaur" style="color:var(--dest-teal);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Durban Natural Science Museum</h4>
+                                            <p class="fs-5">Located in the historic City Hall, this fascinating museum showcases natural history exhibits.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 3: KwaMuhle Museum -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d32.jpeg" alt="KwaMuhle Museum">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-landmark" style="color:var(--dest-mustard);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 KwaMuhle Museum</h4>
+                                            <p class="fs-5">Gain insight into Durban's social and political past during the apartheid era.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 4: Early Morning Market -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d30.jpeg" alt="Early Morning Market">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-seedling" style="color:var(--dest-forest);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Early Morning Market</h4>
+                                            <p class="fs-5">Fresh produce, spices, flowers, and the rhythm of local life.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 5: Muthi Market -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d41.jpeg" alt="Muthi Market">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-mortar-pestle" style="color:var(--dest-sunset);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Muthi Market</h4>
+                                            <p class="fs-5">Traditional African medicine shops with herbs, roots, and potions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 6: Victoria Street Market -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d32.jpeg" alt="Victoria Street Market">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-store" style="color:var(--dest-teal);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Victoria Street Market</h4>
+                                            <p class="fs-5">Handcrafted souvenirs, colourful fabrics, and aromatic spice stalls.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 7: Greyville Racecourse -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d39.jpeg" alt="Greyville Racecourse">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-horse" style="color:var(--dest-mustard);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Drive via Greyville Racecourse</h4>
+                                            <p class="fs-5">Home of the annual Durban July.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 8: Lunch at Oriental Restaurant -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d32.jpeg" alt="Oriental Restaurant">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-utensils" style="color:var(--dest-sunset);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Lunch at The Oriental Restaurant</h4>
+                                            <p class="fs-5">Durban-style curry, naan, and local Indian heritage flavours.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 9: Return -->
+                            <div class="carousel-item">
+                                <div class="itinerary-card-modern mx-3">
+                                    <div class="itinerary-image">
+                                        <img src="img/d45.jpeg" alt="Durban Golden Mile">
+                                    </div>
+                                    <div class="itinerary-content">
+                                        <div class="itinerary-icon"><i class="fas fa-undo-alt" style="color:var(--dest-teal);"></i></div>
+                                        <div>
+                                            <h4 style="color:var(--dest-forest);">📍 Return to Umhlanga / Durban Hotel</h4>
+                                            <p class="fs-5">Scenic drive back along the Golden Mile, optional photo stop.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#itineraryCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#itineraryCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tour Details and Booking -->
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="p-4" style="background: white; border-radius: 30px; border-left: 8px solid var(--dest-forest);">
+                        <h3 class="fw-bold mb-3" style="color:var(--dest-forest);"><i class="fas fa-check-circle me-2" style="color:var(--dest-sunset);"></i> Tour Includes</h3>
+                        <ul class="list-unstyled fs-5">
+                            <li class="mb-2"><i class="fas fa-check me-2" style="color:var(--dest-teal);"></i> Private, air-conditioned vehicle</li>
+                            <li class="mb-2"><i class="fas fa-check me-2" style="color:var(--dest-teal);"></i> Professional local guide</li>
+                            <li class="mb-2"><i class="fas fa-check me-2" style="color:var(--dest-teal);"></i> Bottled water on board</li>
+                            <li class="mb-2"><i class="fas fa-check me-2" style="color:var(--dest-teal);"></i> Hotel pickup and drop-off</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4" style="background: white; border-radius: 30px; border-left: 8px solid var(--dest-teal);">
+                        <h3 class="fw-bold mb-3" style="color:var(--dest-forest);"><i class="fas fa-info-circle me-2" style="color:var(--dest-sunset);"></i> Tour Information</h3>
+                        <p class="fs-5"><strong>Duration:</strong> Approximately 4-5 hours</p>
+                        <p class="fs-5"><strong>Departure:</strong> 9:00 AM from your hotel</p>
+                        <p class="fs-5"><strong>Price:</strong> Available on request</p>
+                        <a href="contact-destination.html" class="btn btn-sunset btn-lg mt-3 px-5 py-3 rounded-pill" style="background:var(--dest-sunset); color:white;">Book This Tour →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inanda Township Tour Section -->
+    <div class="container-fluid py-5 bg-white">
+        <div class="container py-4">
+            <div class="inanda-card">
+                <h3 class="fw-bold">🌼 Inanda Township Heritage & Culture Tour</h3>
+                <p class="fs-5 mb-2"><i class="fas fa-clock me-2" style="color:var(--dest-sunset);"></i>Half Day Tour</p>
+                <p class="fs-5 mb-4"><i class="fas fa-map-pin me-2" style="color:var(--dest-teal);"></i>Starting Point: Mahatma Gandhi Phoenix Settlement</p>
+                <p>Discover the vibrant heart of Inanda - a township that tells South Africa's story of struggle, resilience, and unity. This guided cultural experience explores historic landmarks, celebrates local heritage, and offers a taste of authentic township life and cuisine.</p>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle me-2" style="color:var(--dest-teal);"></i> Highlights:</h5>
+                        <ul>
+                            <li>Mahatma Gandhi Phoenix Settlement</li>
+                            <li>Ohlange Institute (Dr. John Langalibalele Dube's home)</li>
+                            <li>Inanda Heritage Route</li>
+                            <li>Local community interaction</li>
+                            <li>Traditional lunch option available</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-clock me-2" style="color:var(--dest-teal);"></i> Tour Details:</h5>
+                        <ul>
+                            <li>Duration: 4 hours</li>
+                            <li>Includes: Guide, transport, water</li>
+                            <li>Optional: Lunch at local restaurant</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="contact-destination.html" class="btn btn-sunset btn-lg px-5 py-3 rounded-pill" style="background:var(--dest-sunset); color:white;">Book This Tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid footer-dest text-light py-5">
+        <div class="container text-center">
+            <p class="mb-0 fs-5">© 2025 Zinnia Destination Management – a Zinnia Holdings brand. All rights reserved. 🌊🌿🌺</p>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-sunset btn-lg-square rounded-circle back-to-top" style="background:var(--dest-sunset); color:white;"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
